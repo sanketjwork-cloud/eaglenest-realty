@@ -187,4 +187,28 @@ img {
   }
 
 }
+/* =========================
+   FINAL MOBILE WIDTH FIX
+========================= */
 
+@media (max-width: 768px) {
+
+  .residential-projects,
+  .rental-and-end-to-end {
+    width: 100%;
+  }
+
+  .rp,
+  .rental,
+  .eto-e {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Reduce visual dominance of first card */
+  .rp {
+    padding-top: 120px;
+  }
+
+}
+'
