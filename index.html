@@ -101,7 +101,6 @@
   </div>
 </div>
 
-<!-- ================= SCRIPT ================= -->
 <script>
   function openModal() {
     document.getElementById("modalOverlay").style.display = "flex";
@@ -109,6 +108,7 @@
 
   function closeModal() {
     document.getElementById("modalOverlay").style.display = "none";
+    clearErrors();
   }
 
   function closeOnOutside(e) {
@@ -116,7 +116,39 @@
       closeModal();
     }
   }
-</script>
 
+  function clearErrors() {
+    document.querySelectorAll(".field").forEach(field => {
+      field.classList.remove("error");
+      const errorText = field.querySelector(".error-text");
+      if (errorText) errorText.remove();
+    });
+  }
+
+  function submitEnquiry() {
+    clearErrors();
+
+    let hasError = false;
+
+    document.querySelectorAll(".field").forEach(field => {
+      const input = field.querySelector("input, select");
+
+      if (!input.value || input.value === "Select interest") {
+        hasError = true;
+        field.classList.add("error");
+
+        const error = document.createElement("div");
+        error.className = "error-text";
+        error.innerText = "This field is required";
+        field.appendChild(error);
+      }
+    });
+
+    if (!hasError) {
+      alert("Enquiry submitted successfully!");
+      closeModal();
+    }
+  }
+</script>
 </body>
 </html>
