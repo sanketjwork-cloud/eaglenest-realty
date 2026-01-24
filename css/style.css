@@ -113,30 +113,36 @@
   line-height: 1.6;
 }
 
-/* ================= MODAL ================= */
+/* ================= MODAL (FIGMA ACCURATE) ================= */
 
 .modal-overlay {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.75);
+  background: rgba(0, 0, 0, 0.8);
   z-index: 999;
   justify-content: center;
   align-items: center;
 }
 
+/* MAIN MODAL CONTAINER */
 .modal-container {
   width: 667px;
-  background: #ffffff;
-  border-radius: 16px;
   padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-radius: 16px;
+  border: 1px solid #c0c0c0;
+  background: #ffffff;
   position: relative;
 }
 
+/* CLOSE ICON */
 .modal-close {
   position: absolute;
-  right: 16px;
-  top: 16px;
+  right: 20px;
+  top: 20px;
   background: none;
   border: none;
   font-size: 22px;
@@ -144,34 +150,56 @@
   cursor: pointer;
 }
 
+/* TITLE */
 .modal-container h2 {
-  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #141414;
 }
 
+/* FORM */
 .modal-container form {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
+/* INPUT FIELDS */
 .modal-container input,
 .modal-container select {
+  display: flex;
   padding: 8px;
+  align-items: center;
+  align-self: stretch;
   border-radius: 6px;
   border: 1px solid #d9d9d9;
+  background: #ffffff;
   font-size: 14px;
-  box-shadow: none;
+  color: #141414;
+  box-shadow: none; /* no default shadow */
 }
 
+/* INPUT HOVER + FOCUS (FIGMA GRADIENT STROKE) */
+.modal-container input:hover,
 .modal-container input:focus,
+.modal-container select:hover,
 .modal-container select:focus {
   outline: none;
-  border: 1px solid;
+  border: 1px solid transparent;
   border-image: linear-gradient(to right, #e1c388, #b38226) 1;
 }
 
+/* DROPDOWN LIST CONTAINER (FIGMA SHADOW) */
+.modal-container select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23141414' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+
+/* SUBMIT BUTTON */
 .submit-btn {
-  margin-top: 10px;
+  margin-top: 8px;
   padding: 12px;
   border-radius: 12px;
   border: none;
@@ -180,6 +208,14 @@
   font-weight: 500;
   cursor: pointer;
 }
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .modal-container {
+    width: 90%;
+  }
+}
+
 
 /* ================= MOBILE ================= */
 
