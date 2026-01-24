@@ -3,160 +3,108 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Eaglenest Realty</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- CSS -->
   <link rel="stylesheet" href="css/style.css" />
-
-  <!-- RESET -->
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: "Poppins", sans-serif;
-    }
-
-    body {
-      overflow-x: hidden;
-    }
-  </style>
 </head>
 
 <body>
 
-<!-- =========================
-     HEADER
-========================= -->
+<!-- ================= HEADER ================= -->
 <header class="site-header">
   <div class="header-content">
-
-    <div class="brand">
-      <img src="assets/images/logo1.png" alt="Eaglenest Realty Logo" />
-    </div>
-
-    <button class="header-cta" id="openEnquiry">Enquire Now</button>
-
+    <img src="assets/images/logo1.png" class="logo" alt="Eaglenest Realty">
+    <button class="header-cta" id="openModalBtn">Enquire Now</button>
   </div>
 </header>
 
-<!-- =========================
-     WHAT WE DO SECTION
-========================= -->
-<section class="_1">
+<!-- ================= WHAT WE DO ================= -->
+<section class="what-we-do">
+  <div class="card large"
+    style="background-image:url('assets/images/rp0.png')">
+    <div class="overlay"></div>
+    <div class="card-content">
+      <h2>Residential Projects</h2>
+      <p>
+        Access verified new-launch and ready-to-move residential projects from
+        reputed developers across Mumbai and Pune — all in one place.
+      </p>
+    </div>
+  </div>
 
-  <div class="residential-projects">
-
-    <!-- Residential -->
-    <div class="rp" style="background-image:url('assets/images/rp0.png')">
-      <div class="residential-projects-info">
-        <div class="title">Residential Projects</div>
-        <div class="description">
-          Access verified new-launch and ready-to-move residential projects from
-          reputed developers across Mumbai and Pune — all in one place.
-        </div>
+  <div class="right-column">
+    <div class="card"
+      style="background-image:url('assets/images/rental0.png')">
+      <div class="overlay"></div>
+      <div class="card-content">
+        <h2>Rental Solutions</h2>
+        <p>We help you find quality rental homes at competitive prices.</p>
       </div>
     </div>
 
-    <div class="rental-and-end-to-end">
-
-      <!-- Rental -->
-      <div class="rental" style="background-image:url('assets/images/rental0.png')">
-        <div class="rental-solutions-info">
-          <div class="title">Rental Solutions</div>
-          <div class="description">
-            Looking to rent? We help you find quality rental homes at competitive prices.
-          </div>
-        </div>
+    <div class="card"
+      style="background-image:url('assets/images/eto-e0.png')">
+      <div class="overlay"></div>
+      <div class="card-content">
+        <h2>End-to-End Assistance</h2>
+        <p>From site visits to negotiation and paperwork.</p>
       </div>
-
-      <!-- End to End -->
-      <div class="eto-e" style="background-image:url('assets/images/eto-e0.png')">
-        <div class="end-to-end-assistance-info">
-          <div class="title">End-to-End Assistance</div>
-          <div class="description">
-            From site visits to negotiation and paperwork — we stay with you till you move in.
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
 
-<!-- =========================
-     ENQUIRY MODAL
-========================= -->
-<div class="modal-overlay" id="enquiryModal">
-
+<!-- ================= MODAL ================= -->
+<div class="modal-overlay" id="modalOverlay">
   <div class="modal-container">
+    <button class="modal-close" id="closeModal">×</button>
 
-    <div class="modal-header">
-      <h2>Enquire Now</h2>
-      <button class="modal-close" id="closeModal">&times;</button>
+    <h2>Enquire Now</h2>
+
+    <div class="form-group">
+      <input type="text" placeholder="Full Name" />
     </div>
 
-    <form class="modal-form">
+    <div class="form-group">
+      <input type="email" placeholder="Email Address" />
+    </div>
 
-      <div class="form-field">
-        <input type="text" placeholder="Full Name" />
-      </div>
+    <div class="form-group">
+      <input type="tel" placeholder="Phone Number" />
+    </div>
 
-      <div class="form-field">
-        <input type="email" placeholder="Email Address" />
-      </div>
+    <div class="form-group">
+      <select>
+        <option>Select interest</option>
+        <option>Luxury Residential</option>
+        <option>Affordable Housing</option>
+        <option>Under-Construction Projects</option>
+        <option>Ready-to-Move Homes</option>
+        <option>Retail / Showrooms</option>
+        <option>Home Rentals</option>
+        <option>Other / General Inquiry</option>
+      </select>
+    </div>
 
-      <div class="form-field">
-        <input type="tel" placeholder="Phone Number" />
-      </div>
-
-      <div class="form-field">
-        <select>
-          <option>Select interest</option>
-          <option>Luxury Residential</option>
-          <option>Affordable Housing</option>
-          <option>Under-Construction Projects</option>
-          <option>Ready-to-Move Homes</option>
-          <option>Retail / Showrooms</option>
-          <option>Home Rentals</option>
-          <option>General Enquiry</option>
-        </select>
-      </div>
-
-      <button type="button" class="submit-btn">
-        Submit Enquiry
-      </button>
-
-    </form>
-
+    <button class="submit-btn">Submit Enquiry</button>
   </div>
 </div>
 
-<!-- =========================
-     MODAL SCRIPT (REQUIRED)
-========================= -->
+<!-- ================= JS ================= -->
 <script>
-  const openBtn = document.getElementById("openEnquiry");
-  const modal = document.getElementById("enquiryModal");
+  const openBtn = document.getElementById("openModalBtn");
+  const modal = document.getElementById("modalOverlay");
   const closeBtn = document.getElementById("closeModal");
 
-  openBtn.addEventListener("click", () => {
-    modal.classList.add("active");
-    document.body.style.overflow = "hidden";
-  });
+  openBtn.onclick = () => modal.classList.add("active");
+  closeBtn.onclick = () => modal.classList.remove("active");
 
-  closeBtn.addEventListener("click", () => {
-    modal.classList.remove("active");
-    document.body.style.overflow = "auto";
-  });
-
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      modal.classList.remove("active");
-      document.body.style.overflow = "auto";
-    }
-  });
+  modal.onclick = (e) => {
+    if (e.target === modal) modal.classList.remove("active");
+  };
 </script>
 
 </body>
