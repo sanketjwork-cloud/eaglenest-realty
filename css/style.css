@@ -1,5 +1,5 @@
 /* =========================
-   GLOBAL RESET
+   GLOBAL
 ========================= */
 
 * {
@@ -11,7 +11,6 @@
 body {
   font-family: "Poppins", sans-serif;
   background: #fafafa;
-  overflow-x: hidden;
 }
 
 img {
@@ -27,9 +26,6 @@ img {
   height: 80px;
   background: #000e26;
   border-bottom: 1px solid #c99f54;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
 }
 
 .header-content {
@@ -52,67 +48,12 @@ img {
   color: #ffffff;
   border-radius: 10px;
   border: none;
-  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
 }
 
 /* =========================
-   SECTION
-========================= */
-
-._1 {
-  padding: 120px;
-}
-
-.residential-projects {
-  display: flex;
-  gap: 16px;
-}
-
-.rp,
-.rental,
-.eto-e {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-radius: 16px;
-  display: flex;
-  align-items: flex-end;
-}
-
-.rp {
-  flex: 1;
-  padding: 256px 64px 64px;
-}
-
-.rental-and-end-to-end {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.rental,
-.eto-e {
-  flex: 1;
-  padding: 48px 32px;
-}
-
-.title {
-  color: #ffffff;
-  font-size: 32px;
-  font-weight: 600;
-}
-
-.description {
-  color: #ffffff;
-  font-size: 20px;
-  margin-top: 8px;
-}
-
-/* =========================
-   MODAL
+   MODAL OVERLAY
 ========================= */
 
 .modal-overlay {
@@ -125,12 +66,19 @@ img {
   z-index: 2000;
 }
 
+/* =========================
+   MODAL CONTAINER (FIGMA MATCH)
+========================= */
+
 .modal-container {
   width: 667px;
-  max-width: 92%;
-  background: #ffffff;
-  border-radius: 16px;
   padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 16px;
+  border: 1px solid #c0c0c0;
+  background: #ffffff;
   position: relative;
 }
 
@@ -138,28 +86,53 @@ img {
   position: absolute;
   top: 16px;
   right: 16px;
-  border: none;
   background: none;
+  border: none;
   color: #d1a548;
   font-size: 20px;
   cursor: pointer;
 }
 
+.modal-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* =========================
+   FORM
+========================= */
+
 #enquiryForm {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  font-size: 13px;
+  color: #141414;
 }
 
 #enquiryForm input,
 #enquiryForm select {
-  height: 52px;
-  padding: 0 16px;
-  border-radius: 16px;
-  border: 1px solid #c0c0c0;
+  padding: 8px;
+  height: 44px;
+  border-radius: 6px;
+  border: 1px solid #d9d9d9;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  background: #ffffff;
   outline: none;
 }
 
+/* Hover / Focus Gradient Stroke */
 #enquiryForm input:hover,
 #enquiryForm input:focus,
 #enquiryForm select:hover,
@@ -170,20 +143,30 @@ img {
     linear-gradient(to right, #e1c388, #b38226) border-box;
 }
 
+/* Dropdown shadow */
+#enquiryForm select {
+  box-shadow:
+    0 4px 8px rgba(10, 13, 18, 0.06),
+    0 8px 16px rgba(10, 13, 18, 0.1);
+}
+
+/* Submit */
 .submit-btn {
-  height: 52px;
+  margin-top: 8px;
+  height: 48px;
+  border-radius: 12px;
+  border: none;
   background: linear-gradient(to right, #e1c388, #b38226);
   color: #ffffff;
-  border: none;
-  border-radius: 16px;
   font-weight: 600;
   cursor: pointer;
 }
 
+/* Error */
 .form-error {
   display: none;
   color: #d32f2f;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 /* =========================
@@ -191,32 +174,13 @@ img {
 ========================= */
 
 @media (max-width: 768px) {
+
   .header-content {
     padding: 0 24px;
   }
 
-  ._1 {
-    padding: 24px;
-  }
-
-  .residential-projects {
-    flex-direction: column;
-  }
-
-  .rp {
-    padding: 120px 24px 32px;
-  }
-
-  .rental,
-  .eto-e {
-    padding: 32px 24px;
-  }
-
-  .title {
-    font-size: 22px;
-  }
-
-  .description {
-    font-size: 14px;
+  .modal-container {
+    width: 100%;
+    border-radius: 12px;
   }
 }
