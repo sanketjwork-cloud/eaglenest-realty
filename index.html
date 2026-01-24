@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eaglenest Realty</title>
 
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
@@ -15,85 +18,54 @@
   ========================= -->
   <header class="site-header">
     <div class="header-content">
-
-      <!-- Logo -->
       <div class="brand">
         <img src="assets/images/logo1.png" alt="Eaglenest Realty Logo" />
       </div>
-
-      <!-- CTA -->
       <button class="header-cta" onclick="openModal()">Enquire Now</button>
-
     </div>
   </header>
 
   <!-- =========================
-       SECTION 1
+       ENQUIRY MODAL
   ========================= -->
-  <section class="_1">
-    <div class="residential-projects">
-
-      <!-- Residential -->
-      <div class="rp" style="background-image:url('assets/images/rp0.png')">
-        <div>
-          <div class="title">Residential Projects</div>
-          <div class="description">
-            Access verified new-launch and ready-to-move residential projects
-            across Mumbai and Pune — all in one place.
-          </div>
-        </div>
-      </div>
-
-      <!-- Right Column -->
-      <div class="rental-and-end-to-end">
-
-        <div class="rental" style="background-image:url('assets/images/rental0.png')">
-          <div>
-            <div class="title">Rental Solutions</div>
-            <div class="description">
-              Quality rental homes at competitive prices with minimal brokerage.
-            </div>
-          </div>
-        </div>
-
-        <div class="eto-e" style="background-image:url('assets/images/eto-e0.png')">
-          <div>
-            <div class="title">End-to-End Assistance</div>
-            <div class="description">
-              From site visits to paperwork — we stay till you move in.
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================
-       MODAL
-  ========================= -->
-  <div id="modalOverlay" class="modal-overlay">
+  <div class="modal-overlay" id="modalOverlay">
 
     <div class="modal-container">
       <button class="modal-close" onclick="closeModal()">✕</button>
 
-      <h2>Enquire Now</h2>
+      <h2 class="modal-title">Enquire Now</h2>
 
       <form id="enquiryForm">
-        <input type="text" placeholder="Full Name" required />
-        <input type="email" placeholder="Email Address" required />
-        <input type="tel" placeholder="Phone Number" required />
 
-        <select required>
-          <option value="">Select Interest</option>
-          <option>Residential Projects</option>
-          <option>Rental Property</option>
-          <option>Site Visit</option>
-          <option>Investment</option>
-        </select>
+        <div class="field">
+          <label>Full Name</label>
+          <input type="text" placeholder="Enter your full name" required />
+        </div>
+
+        <div class="field">
+          <label>Email Address</label>
+          <input type="email" placeholder="yourname@email.com" required />
+        </div>
+
+        <div class="field">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="+91 xxx xxx xxxx" required />
+        </div>
+
+        <div class="field">
+          <label>Interest</label>
+          <select required>
+            <option value="">Select interest</option>
+            <option>Residential Projects</option>
+            <option>Rental Property</option>
+            <option>Investment</option>
+            <option>Site Visit</option>
+          </select>
+        </div>
 
         <button type="submit" class="submit-btn">Submit Enquiry</button>
         <p class="form-error">Please fill all required fields</p>
+
       </form>
     </div>
 
@@ -101,8 +73,8 @@
 
   <script>
     const modal = document.getElementById("modalOverlay");
-    const error = document.querySelector(".form-error");
     const form = document.getElementById("enquiryForm");
+    const error = document.querySelector(".form-error");
 
     function openModal() {
       modal.style.display = "flex";
