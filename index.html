@@ -11,7 +11,44 @@
 
   <title>Eaglenest Realty</title>
 </head>
+  
+<!-- =========================
+     ENQUIRY MODAL
+========================= -->
 
+<div id="modalOverlay" class="modal-overlay">
+
+  <div class="modal-container">
+
+    <!-- Close -->
+    <button class="modal-close" onclick="closeModal()">✕</button>
+
+    <h2>Enquire Now</h2>
+
+    <form id="enquiryForm">
+
+      <input type="text" placeholder="Full Name" required />
+      <input type="email" placeholder="Email Address" required />
+      <input type="tel" placeholder="Phone Number" required />
+
+      <!-- Interest Dropdown -->
+      <select required>
+        <option value="">Select Interest</option>
+        <option>Residential Projects</option>
+        <option>Rental Property</option>
+        <option>Site Visit</option>
+        <option>Investment</option>
+      </select>
+
+      <button type="submit" class="submit-btn">Submit Enquiry</button>
+
+      <p class="form-error">Please fill all required fields</p>
+
+    </form>
+  </div>
+
+</div> 
+  
 <body>
 
   <!-- =========================
