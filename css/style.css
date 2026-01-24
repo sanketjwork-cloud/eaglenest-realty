@@ -104,3 +104,156 @@ a {
 }
 
 .residential-projects {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex: 1;
+}
+
+.rp {
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  border-radius: 16px;
+  padding: 256px 64px 64px 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-end;
+  flex: 1;
+}
+
+.residential-projects-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.description {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.rental-and-end-to-end {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1;
+  height: 496px;
+}
+
+.rental,
+.eto-e {
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  border-radius: 16px;
+  padding: 48px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex: 1;
+}
+
+.rental-solutions-info,
+.end-to-end-assistance-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* =========================
+   TABLET (≤1024px)
+========================= */
+
+@media (max-width: 1024px) {
+
+  .header-content {
+    padding: 16px 64px;
+  }
+
+  ._1 {
+    padding: 64px;
+  }
+
+  .rp {
+    padding: 180px 48px 48px;
+  }
+
+  .title {
+    font-size: 26px;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+}
+
+/* =========================
+   MOBILE (≤768px)
+========================= */
+
+@media (max-width: 768px) {
+
+  /* Header */
+  .header-content {
+    padding: 16px 24px;
+  }
+
+  .header-nav {
+    display: none;
+  }
+
+  .brand {
+    font-size: 16px;
+  }
+
+  .header-cta {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+
+  /* Section */
+  ._1 {
+    padding: 24px;
+    flex-direction: column;
+  }
+
+  .residential-projects {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .rp {
+    padding: 120px 24px 32px;
+    width: 100%;
+  }
+
+  .rental-and-end-to-end {
+    height: auto;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .rental,
+  .eto-e {
+    padding: 32px 24px;
+    width: 100%;
+  }
+
+  .title {
+    font-size: 22px;
+    line-height: 1.3;
+  }
+
+  .description {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+}
