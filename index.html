@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eaglenest Realty</title>
 
-  <!-- Poppins -->
+  <!-- Poppins Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/style.css" />
@@ -17,7 +17,7 @@
   <header class="site-header">
     <div class="header-content">
       <div class="brand">
-        <img src="assets/images/logo1.png" alt="Eaglenest Realty" />
+        <img src="assets/images/logo1.png" alt="Eaglenest Realty Logo" />
       </div>
 
       <button class="header-cta" onclick="openModal()">Enquire Now</button>
@@ -28,6 +28,71 @@
   <section class="what-we-do">
     <div class="residential-projects">
 
+      <!-- LEFT BIG CARD -->
       <div class="rp" style="background-image:url('assets/images/rp0.png')">
         <div class="info">
-          <h3>Residential Pro
+          <h3>Residential Projects</h3>
+          <p>
+            Access verified new-launch and ready-to-move residential projects
+            from reputed developers across Mumbai and Pune.
+          </p>
+        </div>
+      </div>
+
+      <!-- RIGHT STACK -->
+      <div class="side-cards">
+        <div class="card" style="background-image:url('assets/images/rental0.png')">
+          <div class="info">
+            <h3>Rental Solutions</h3>
+            <p>Quality rental homes at competitive prices.</p>
+          </div>
+        </div>
+
+        <div class="card" style="background-image:url('assets/images/eto-e0.png')">
+          <div class="info">
+            <h3>End-to-End Assistance</h3>
+            <p>From site visits to paperwork — we stay with you.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= ENQUIRY MODAL ================= -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-container">
+      <button class="modal-close" onclick="closeModal()">×</button>
+
+      <h2>Enquire Now</h2>
+
+      <form>
+        <input type="text" placeholder="Full Name" required />
+        <input type="email" placeholder="Email Address" required />
+        <input type="tel" placeholder="Phone Number" required />
+
+        <select>
+          <option>Select interest</option>
+          <option>Residential Projects</option>
+          <option>Rentals</option>
+          <option>Investment</option>
+        </select>
+
+        <button type="submit" class="submit-btn">Submit Enquiry</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= SCRIPT ================= -->
+  <script>
+    function openModal() {
+      document.getElementById("modalOverlay").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("modalOverlay").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
