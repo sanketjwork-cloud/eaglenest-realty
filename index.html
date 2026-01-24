@@ -59,29 +59,73 @@
     </div>
   </section>
 
-  <!-- ================= ENQUIRY MODAL ================= -->
-  <div class="modal-overlay" id="modalOverlay">
-    <div class="modal-container">
-      <button class="modal-close" onclick="closeModal()">×</button>
+ <!-- =========================
+     ENQUIRY MODAL
+========================= -->
 
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+  <div class="modal-container" onclick="event.stopPropagation()">
+
+    <div class="modal-header">
       <h2>Enquire Now</h2>
-
-      <form>
-        <input type="text" placeholder="Full Name" required />
-        <input type="email" placeholder="Email Address" required />
-        <input type="tel" placeholder="Phone Number" required />
-
-        <select>
-          <option>Select interest</option>
-          <option>Residential Projects</option>
-          <option>Rentals</option>
-          <option>Investment</option>
-        </select>
-
-        <button type="submit" class="submit-btn">Submit Enquiry</button>
-      </form>
+      <button class="modal-close" onclick="closeModal()">×</button>
     </div>
+
+    <form class="modal-form">
+
+      <!-- Full Name -->
+      <div class="form-field">
+        <input type="text" placeholder="Full Name" />
+      </div>
+
+      <!-- Email -->
+      <div class="form-field">
+        <input type="email" placeholder="Email Address" />
+      </div>
+
+      <!-- Phone -->
+      <div class="form-field">
+        <input type="tel" placeholder="Phone Number" />
+      </div>
+
+      <!-- Interest -->
+      <div class="form-field">
+        <select>
+          <option value="">Select interest</option>
+          <option>Luxury Residential</option>
+          <option>Affordable Housing</option>
+          <option>Under-Construction Projects</option>
+          <option>Ready-to-Move-In Homes</option>
+          <option>Retail Shops / Showrooms</option>
+          <option>Home Rentals</option>
+          <option>Other / General Inquiry</option>
+        </select>
+      </div>
+
+      <!-- Message -->
+      <div class="form-field">
+        <textarea placeholder="Tell us about your requirements – budget, location, timeline, etc."></textarea>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" class="submit-btn">
+        Submit Enquiry
+      </button>
+
+    </form>
   </div>
+</div>
+
+<script>
+  function openModal() {
+    document.getElementById("modalOverlay").classList.add("active");
+  }
+
+  function closeModal() {
+    document.getElementById("modalOverlay").classList.remove("active");
+  }
+</script>
+
 
   <!-- ================= SCRIPT ================= -->
   <script>
