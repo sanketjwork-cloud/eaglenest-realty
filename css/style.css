@@ -215,7 +215,38 @@
     width: 90%;
   }
 }
+/* ===== FORCE FIGMA INTERACTION STATES ===== */
 
+.modal-container input,
+.modal-container select {
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* REMOVE BROWSER SELECT UI */
+.modal-container select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #fff;
+}
+
+/* HOVER STATE (VISIBLE) */
+.modal-container input:hover,
+.modal-container select:hover {
+  border: 1px solid transparent;
+  border-image: linear-gradient(to right, #e1c388, #b38226) 1;
+}
+
+/* FOCUS STATE (STRONGER) */
+.modal-container input:focus,
+.modal-container select:focus {
+  outline: none;
+  border: 1px solid transparent;
+  border-image: linear-gradient(to right, #e1c388, #b38226) 1;
+  box-shadow: 0 0 0 1px rgba(227, 182, 84, 0.35);
+}
 
 /* ================= MOBILE ================= */
 
