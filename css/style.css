@@ -75,8 +75,8 @@ a {
 .header-cta {
   padding: 10px 20px;
   background: #c99f54;
-  color: #000e26;
-  border-radius: 8px;
+  color: #ffffff; /* WHITE TEXT */
+  border-radius: 10px;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
