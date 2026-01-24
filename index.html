@@ -2,53 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/vars.css" />
-  <link rel="stylesheet" href="css/style.css" />
-
   <title>Eaglenest Realty</title>
+
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-  
-<!-- =========================
-     ENQUIRY MODAL
-========================= -->
 
-<div id="modalOverlay" class="modal-overlay">
-
-  <div class="modal-container">
-
-    <!-- Close -->
-    <button class="modal-close" onclick="closeModal()">✕</button>
-
-    <h2>Enquire Now</h2>
-
-    <form id="enquiryForm">
-
-      <input type="text" placeholder="Full Name" required />
-      <input type="email" placeholder="Email Address" required />
-      <input type="tel" placeholder="Phone Number" required />
-
-      <!-- Interest Dropdown -->
-      <select required>
-        <option value="">Select Interest</option>
-        <option>Residential Projects</option>
-        <option>Rental Property</option>
-        <option>Site Visit</option>
-        <option>Investment</option>
-      </select>
-
-      <button type="submit" class="submit-btn">Submit Enquiry</button>
-
-      <p class="form-error">Please fill all required fields</p>
-
-    </form>
-  </div>
-
-</div> 
-  
 <body>
 
   <!-- =========================
@@ -63,7 +22,7 @@
       </div>
 
       <!-- CTA -->
-      <button class="header-cta">Enquire Now</button>
+      <button class="header-cta" onclick="openModal()">Enquire Now</button>
 
     </div>
   </header>
@@ -74,46 +33,34 @@
   <section class="_1">
     <div class="residential-projects">
 
-      <!-- Residential Projects -->
-      <div
-        class="rp"
-        style="background-image: url('assets/images/rp0.png');"
-      >
-        <div class="residential-projects-info">
+      <!-- Residential -->
+      <div class="rp" style="background-image:url('assets/images/rp0.png')">
+        <div>
           <div class="title">Residential Projects</div>
           <div class="description">
-            Access verified new-launch and ready-to-move residential projects from
-            reputed developers across Mumbai and Pune — all in one place.
+            Access verified new-launch and ready-to-move residential projects
+            across Mumbai and Pune — all in one place.
           </div>
         </div>
       </div>
 
+      <!-- Right Column -->
       <div class="rental-and-end-to-end">
 
-        <!-- Rental -->
-        <div
-          class="rental"
-          style="background-image: url('assets/images/rental0.png');"
-        >
-          <div class="rental-solutions-info">
+        <div class="rental" style="background-image:url('assets/images/rental0.png')">
+          <div>
             <div class="title">Rental Solutions</div>
             <div class="description">
-              Looking to rent? We help you find quality rental homes at
-              competitive prices, with zero confusion and minimal brokerage.
+              Quality rental homes at competitive prices with minimal brokerage.
             </div>
           </div>
         </div>
 
-        <!-- End to End -->
-        <div
-          class="eto-e"
-          style="background-image: url('assets/images/eto-e0.png');"
-        >
-          <div class="end-to-end-assistance-info">
+        <div class="eto-e" style="background-image:url('assets/images/eto-e0.png')">
+          <div>
             <div class="title">End-to-End Assistance</div>
             <div class="description">
-              From shortlisting and site visits to negotiation and paperwork —
-              we stay with you till you move in.
+              From site visits to paperwork — we stay till you move in.
             </div>
           </div>
         </div>
@@ -121,6 +68,67 @@
       </div>
     </div>
   </section>
+
+  <!-- =========================
+       MODAL
+  ========================= -->
+  <div id="modalOverlay" class="modal-overlay">
+
+    <div class="modal-container">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+
+      <h2>Enquire Now</h2>
+
+      <form id="enquiryForm">
+        <input type="text" placeholder="Full Name" required />
+        <input type="email" placeholder="Email Address" required />
+        <input type="tel" placeholder="Phone Number" required />
+
+        <select required>
+          <option value="">Select Interest</option>
+          <option>Residential Projects</option>
+          <option>Rental Property</option>
+          <option>Site Visit</option>
+          <option>Investment</option>
+        </select>
+
+        <button type="submit" class="submit-btn">Submit Enquiry</button>
+        <p class="form-error">Please fill all required fields</p>
+      </form>
+    </div>
+
+  </div>
+
+  <script>
+    const modal = document.getElementById("modalOverlay");
+    const error = document.querySelector(".form-error");
+    const form = document.getElementById("enquiryForm");
+
+    function openModal() {
+      modal.style.display = "flex";
+    }
+
+    function closeModal() {
+      modal.style.display = "none";
+      error.style.display = "none";
+      form.reset();
+    }
+
+    modal.addEventListener("click", e => {
+      if (e.target === modal) closeModal();
+    });
+
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      const valid = [...form.elements].every(el => el.value || el.tagName === "BUTTON");
+      if (!valid) {
+        error.style.display = "block";
+      } else {
+        alert("Enquiry submitted successfully!");
+        closeModal();
+      }
+    });
+  </script>
 
 </body>
 </html>
