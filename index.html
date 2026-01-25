@@ -12,41 +12,19 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <script>
-  function validateForm() {
-    let isValid = true;
-
-    const fields = ["name", "email", "phone", "interest"];
-
-    fields.forEach(id => {
-      const input = document.getElementById(id);
-      const wrapper = input.closest(".form-field");
-
-      if (!input.value.trim()) {
-        wrapper.classList.add("error");
-        isValid = false;
-      } else {
-        wrapper.classList.remove("error");
-      }
-    });
-
-    return isValid;
+  function openModal() {
+    document.getElementById("modalOverlay").classList.add("active");
   }
 
-  document.querySelectorAll(".form-field input, .form-field select")
-    .forEach(el => {
-      el.addEventListener("input", () => {
-        el.closest(".form-field").classList.remove("error");
-      });
-      el.addEventListener("change", () => {
-        el.closest(".form-field").classList.remove("error");
-      });
-    });
+  function closeModal() {
+    document.getElementById("modalOverlay").classList.remove("active");
+  }
 
-  document.getElementById("submitEnquiry")
-    .addEventListener("click", function (e) {
-      e.preventDefault();
-      validateForm();
-    });
+  function closeOnOutside(e) {
+    if (e.target.id === "modalOverlay") {
+      closeModal();
+    }
+  }
 </script>
 
 <body>
@@ -143,6 +121,16 @@
 
   </form>
 </div>
+<div class="modal-overlay" id="modalOverlay" onclick="closeOnOutside(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">×</button>
+
+    <h2>Enquire Now</h2>
+
+    <!-- form here -->
+  </div>
+</div>
+
   
 <script>
   function openModal() {
