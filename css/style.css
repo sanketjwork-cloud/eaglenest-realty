@@ -266,7 +266,6 @@ body {
     font-size: 14px;
   }
 }
-
 /* ================= PROJECTS WE WORK WITH ================= */
 .projects-section {
   display: inline-flex;
@@ -312,7 +311,8 @@ body {
   display: flex;
   gap: 24px;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap; /* Keep all cards in one line */
+  overflow-x: auto; /* Allow horizontal scroll if needed on smaller screens */
 }
 
 /* Project Card */
@@ -339,12 +339,15 @@ body {
   width: 100%;
   height: 260px;
   overflow: hidden;
+  background: #f0f0f0; /* Fallback background if image doesn't load */
 }
 
 .project-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
+  display: block; /* Remove any inline spacing */
   transition: transform 0.3s ease;
 }
 
@@ -438,6 +441,7 @@ body {
   
   .project-card {
     width: 340px;
+    flex-shrink: 0; /* Prevent cards from shrinking */
   }
 }
 
@@ -455,8 +459,10 @@ body {
   }
   
   .projects-grid {
-    flex-direction: column;
+    flex-direction: column; /* Stack vertically on mobile */
+    flex-wrap: nowrap;
     align-items: center;
+    overflow-x: visible;
   }
   
   .project-card {
@@ -478,7 +484,3 @@ body {
     font-size: 13px;
   }
 }
-
-
-
-
