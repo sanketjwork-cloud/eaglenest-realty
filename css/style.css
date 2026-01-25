@@ -43,6 +43,11 @@ body {
   color: #fff;
   font-weight: 600;
   cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.header-cta:hover {
+  transform: scale(1.05);
 }
 
 /* ================= WHAT WE DO ================= */
@@ -107,60 +112,71 @@ body {
   font-size: 15px;
   line-height: 1.6;
 }
-/* =========================
-   MODAL OVERLAY
-========================= */
+
+/* ================= MODAL OVERLAY ================= */
 .modal-overlay {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.6);
-  display: none;              /* 🔴 THIS WAS MISSING */
+  display: none;
   align-items: center;
   justify-content: center;
   z-index: 9999;
+  backdrop-filter: blur(2px);
 }
 
-/* Show modal */
 .modal-overlay.active {
   display: flex;
 }
 
-/* =========================
-   MODAL BOX
-========================= */
+/* ================= MODAL BOX ================= */
 .modal {
   background: #ffffff;
   width: 667px;
   max-width: 90%;
   border-radius: 16px;
-  padding: 24px;
+  padding: 32px;
   position: relative;
   font-family: "Poppins", sans-serif;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
-/* ================= MOBILE ================= */
-@media (max-width: 768px) {
-  .residential-projects {
-    flex-direction: column;
-  }
-
-  .rp,
-  .card {
-    height: 260px;
-  }
-
-  .modal {
-    width: 90%;
-  }
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 32px;
+  color: #666;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s;
 }
-/* =========================
-   FORM ERROR STATES
-========================= */
 
+.modal-close:hover {
+  background: #f0f0f0;
+  color: #000;
+}
+
+.modal h2 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: #141414;
+}
+
+/* ================= FORM FIELDS ================= */
 .form-field {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  margin-bottom: 20px;
 }
 
 .form-field input,
@@ -171,13 +187,23 @@ body {
   font-family: "Poppins", sans-serif;
   font-size: 14px;
   outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+  border-color: #b38226;
+}
+
+.form-field select {
+  background: #fff;
+  cursor: pointer;
 }
 
 /* Error border */
 .form-field.error input,
 .form-field.error select {
-  border-color: #E53935; /* red */
-  background: #FFF;
+  border-color: #E53935;
 }
 
 /* Error text */
@@ -186,9 +212,57 @@ body {
   font-size: 12px;
   color: #E53935;
   font-family: "Poppins", sans-serif;
+  margin-top: 4px;
 }
 
-/* Show error text */
 .form-field.error .error-text {
   display: block;
+}
+
+/* ================= SUBMIT BUTTON ================= */
+.submit-btn {
+  width: 100%;
+  background: linear-gradient(to right, #e1c388, #b38226);
+  border: none;
+  padding: 14px 24px;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  margin-top: 8px;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .residential-projects {
+    flex-direction: column;
+  }
+  
+  .rp,
+  .card {
+    height: 260px;
+  }
+  
+  .modal {
+    width: 90%;
+    padding: 24px;
+  }
+  
+  .modal h2 {
+    font-size: 24px;
+  }
+  
+  .content h3 {
+    font-size: 22px;
+  }
+  
+  .content p {
+    font-size: 14px;
+  }
 }
