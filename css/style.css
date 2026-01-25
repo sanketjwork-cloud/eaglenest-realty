@@ -49,6 +49,9 @@ body {
 .header-cta:hover {
   transform: scale(1.05);
 }
+/* ================= GOOGLE FONTS ================= */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+
 /* ================= HERO SECTION ================= */
 .hero-section {
   display: flex;
@@ -80,13 +83,27 @@ body {
 }
 
 .hero-title {
-  font-family: "Poppins", sans-serif;
+  color: #FFF;
+  font-family: "Playfair Display", serif;
   font-size: 56px;
-  font-weight: 700;
-  line-height: 1.2;
-  color: #fff;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
   margin: 0;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Gradient Text for "Right" */
+.gradient-text {
+  background: linear-gradient(90deg, #DCB76D 0%, #F4D68D 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Playfair Display", serif;
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
 
 .hero-subtitle {
@@ -102,7 +119,7 @@ body {
 /* Hero CTA Button */
 .hero-cta {
   display: flex;
-  min-width: 94px;
+  width: 140px; /* Fixed width */
   padding: 11.75px 23.5px;
   justify-content: center;
   align-items: center;
@@ -141,6 +158,10 @@ body {
     font-size: 48px;
   }
   
+  .gradient-text {
+    font-size: 48px;
+  }
+  
   .hero-subtitle {
     font-size: 16px;
   }
@@ -165,6 +186,10 @@ body {
     font-size: 36px;
   }
   
+  .gradient-text {
+    font-size: 36px;
+  }
+  
   .hero-subtitle {
     font-size: 15px;
   }
@@ -182,6 +207,10 @@ body {
   }
   
   .hero-title {
+    font-size: 32px;
+  }
+  
+  .gradient-text {
     font-size: 32px;
   }
   
