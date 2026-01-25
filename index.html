@@ -11,6 +11,43 @@
   <!-- Styles -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
+<script>
+  function validateForm() {
+    let isValid = true;
+
+    const fields = ["name", "email", "phone", "interest"];
+
+    fields.forEach(id => {
+      const input = document.getElementById(id);
+      const wrapper = input.closest(".form-field");
+
+      if (!input.value.trim()) {
+        wrapper.classList.add("error");
+        isValid = false;
+      } else {
+        wrapper.classList.remove("error");
+      }
+    });
+
+    return isValid;
+  }
+
+  document.querySelectorAll(".form-field input, .form-field select")
+    .forEach(el => {
+      el.addEventListener("input", () => {
+        el.closest(".form-field").classList.remove("error");
+      });
+      el.addEventListener("change", () => {
+        el.closest(".form-field").classList.remove("error");
+      });
+    });
+
+  document.getElementById("submitEnquiry")
+    .addEventListener("click", function (e) {
+      e.preventDefault();
+      validateForm();
+    });
+</script>
 
 <body>
 
@@ -66,41 +103,47 @@
 </section>
 
 <!-- ================= MODAL ================= -->
-<div class="modal-overlay" id="modalOverlay" onclick="closeOnOutside(event)">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal()">✕</button>
+<div class="modal">
+  <button class="modal-close" onclick="closeModal()">×</button>
+  <h2>Enquire Now</h2>
 
-    <h2>Enquire Now</h2>
+  <form id="enquiryForm">
 
-    <div class="field">
-      <input type="text" placeholder="Full Name" />
+    <div class="field form-field">
+      <input type="text" id="name" placeholder="Full Name" />
+      <span class="error-text">This field is required</span>
     </div>
 
-    <div class="field">
-      <input type="email" placeholder="Email Address" />
+    <div class="field form-field">
+      <input type="email" id="email" placeholder="Email Address" />
+      <span class="error-text">This field is required</span>
     </div>
 
-    <div class="field">
-      <input type="tel" placeholder="Phone Number" />
+    <div class="field form-field">
+      <input type="tel" id="phone" placeholder="Phone Number" />
+      <span class="error-text">This field is required</span>
     </div>
 
-    <div class="field">
-      <select>
-        <option>Select interest</option>
+    <div class="field form-field">
+      <select id="interest">
+        <option value="">Select interest</option>
         <option>Luxury Residential</option>
         <option>Affordable Housing</option>
         <option>Under-Construction Projects</option>
         <option>Ready-to-Move Homes</option>
         <option>Retail / Showrooms</option>
-        <option>Home Rentals</option>
-        <option>Other / General Inquiry</option>
+        <option>Other</option>
       </select>
+      <span class="error-text">This field is required</span>
     </div>
 
-   <button class="submit-btn" onclick="submitEnquiry()">Submit Enquiry</button>
-  </div>
-</div>
+    <button type="submit" id="submitEnquiry" class="submit-btn">
+      Submit Enquiry
+    </button>
 
+  </form>
+</div>
+  
 <script>
   function openModal() {
     document.getElementById("modalOverlay").style.display = "flex";
