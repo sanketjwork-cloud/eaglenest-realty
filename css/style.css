@@ -49,6 +49,150 @@ body {
 .header-cta:hover {
   transform: scale(1.05);
 }
+/* ================= HERO SECTION ================= */
+.hero-section {
+  display: flex;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 120px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  min-height: 600px;
+  position: relative;
+  
+  /* Desktop Image */
+  background: url('../assets/images/Herosectionimg.png') lightgray 50% / cover no-repeat;
+  background-position: center;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.hero-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #fff;
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #fff;
+  margin: 0;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Hero CTA Button */
+.hero-cta {
+  display: flex;
+  min-width: 94px;
+  padding: 11.75px 23.5px;
+  justify-content: center;
+  align-items: center;
+  gap: 11.75px;
+  border-radius: 8.813px;
+  background: #FFF;
+  border: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #141414;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  background: #f8f8f8;
+}
+
+.hero-cta:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ================= RESPONSIVE - TABLET ================= */
+@media (max-width: 1024px) {
+  .hero-section {
+    padding: 80px 60px;
+    min-height: 500px;
+  }
+  
+  .hero-title {
+    font-size: 48px;
+  }
+  
+  .hero-subtitle {
+    font-size: 16px;
+  }
+}
+
+/* ================= RESPONSIVE - MOBILE ================= */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 60px 24px;
+    min-height: 500px;
+    
+    /* Mobile Image - Switch to vertical image */
+    background: url('../assets/images/Mobileherosectionimg.png') lightgray 50% / cover no-repeat;
+    background-position: center;
+  }
+  
+  .hero-content {
+    max-width: 100%;
+  }
+  
+  .hero-title {
+    font-size: 36px;
+  }
+  
+  .hero-subtitle {
+    font-size: 15px;
+  }
+  
+  .hero-cta {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 40px 20px;
+    min-height: 450px;
+  }
+  
+  .hero-title {
+    font-size: 32px;
+  }
+  
+  .hero-subtitle {
+    font-size: 14px;
+  }
+  
+  .hero-text {
+    gap: 20px;
+  }
+}
 
 /* ================= WHAT WE DO ================= */
 .what-we-do {
