@@ -476,57 +476,57 @@
           <h3 class="form-title">Connect with us</h3>
         </div>
         
-        <form id="contactForm" onsubmit="submitContact(event)">
+        <form id="mainContactForm" onsubmit="submitMainContact(event)">
           
           <!-- Name Field -->
-          <div class="input-group">
-            <label for="contactName">Your name <span class="required">*</span></label>
+          <div class="contact-input-group">
+            <label for="mainContactName">Your name <span class="required">*</span></label>
             <input 
               type="text" 
-              id="contactName" 
+              id="mainContactName" 
               placeholder="Enter your full name" 
               required
             />
           </div>
           
           <!-- Phone Field -->
-          <div class="input-group">
-            <label for="contactPhone">Phone number <span class="required">*</span></label>
+          <div class="contact-input-group">
+            <label for="mainContactPhone">Phone number <span class="required">*</span></label>
             <input 
               type="tel" 
-              id="contactPhone" 
+              id="mainContactPhone" 
               placeholder="+91 xxx xxx xxxx" 
               required
             />
           </div>
           
           <!-- Email Field -->
-          <div class="input-group">
-            <label for="contactEmail">Email Address <span class="required">*</span></label>
+          <div class="contact-input-group">
+            <label for="mainContactEmail">Email Address <span class="required">*</span></label>
             <input 
               type="email" 
-              id="contactEmail" 
+              id="mainContactEmail" 
               placeholder="yourname@gmail.com" 
               required
             />
           </div>
           
           <!-- Interest Field -->
-          <div class="input-group">
-            <label for="contactInterest">Interest <span class="required">*</span></label>
+          <div class="contact-input-group">
+            <label for="mainContactInterest">Interest <span class="required">*</span></label>
             <input 
               type="text" 
-              id="contactInterest" 
+              id="mainContactInterest" 
               placeholder="Eg: Residential Projects" 
               required
             />
           </div>
           
           <!-- Message Field -->
-          <div class="input-group">
-            <label for="contactMessage">Message <span class="required">*</span></label>
+          <div class="contact-input-group">
+            <label for="mainContactMessage">Message <span class="required">*</span></label>
             <textarea 
-              id="contactMessage" 
+              id="mainContactMessage" 
               rows="4" 
               placeholder="Tell us about your requirements - budget, location preferences, project type, timeline, etc."
               required
@@ -588,5 +588,27 @@
     }
   }
 </script>
+function submitMainContact(e) {
+  e.preventDefault();
+  
+  // Get form values
+  const name = document.getElementById("mainContactName").value;
+  const phone = document.getElementById("mainContactPhone").value;
+  const email = document.getElementById("mainContactEmail").value;
+  const interest = document.getElementById("mainContactInterest").value;
+  const message = document.getElementById("mainContactMessage").value;
+  
+  // Simple validation
+  if (!name || !phone || !email || !interest || !message) {
+    alert("Please fill in all required fields.");
+    return;
+  }
+  
+  // Success message
+  alert("Thank you! We'll get back to you soon.");
+  
+  // Reset form
+  document.getElementById("mainContactForm").reset();
+}
 </body>
 </html>
