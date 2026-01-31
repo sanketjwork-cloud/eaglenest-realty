@@ -547,6 +547,36 @@
     
   </div>
 </section>
+
+<!-- ================= SUCCESS MODAL ================= -->
+<div class="feedback-overlay" id="successOverlay" onclick="closeFeedback('success')">
+  <div class="feedback-modal success-modal" onclick="event.stopPropagation()">
+    <button class="feedback-close" onclick="closeFeedback('success')">×</button>
+    <img src="assets/images/Success.png" alt="Success" class="feedback-icon" />
+    <h3 class="feedback-title">Enquiry Sent Successfully!</h3>
+    <p class="feedback-message">
+      Thank you for reaching out. Our team will get back to you within 24 hours.
+    </p>
+    <button class="feedback-btn success-btn" onclick="closeFeedback('success')">
+      Got it
+    </button>
+  </div>
+</div>
+
+<!-- ================= ERROR MODAL ================= -->
+<div class="feedback-overlay" id="errorOverlay" onclick="closeFeedback('error')">
+  <div class="feedback-modal error-modal" onclick="event.stopPropagation()">
+    <button class="feedback-close" onclick="closeFeedback('error')">×</button>
+    <img src="assets/images/Error.png" alt="Error" class="feedback-icon" />
+    <h3 class="feedback-title">Oops! Something Went Wrong</h3>
+    <p class="feedback-message">
+      We couldn't process your request. Please check your connection and try again.
+    </p>
+    <button class="feedback-btn error-btn" onclick="closeFeedback('error')">
+      Try Again
+    </button>
+  </div>
+</div>
 <!-- ================= FOOTER ================= -->
 <footer class="site-footer">
   <div class="footer-container">
