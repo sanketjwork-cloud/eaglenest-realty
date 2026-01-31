@@ -697,28 +697,51 @@
   }
 
   // Main Contact Form Function
-  function submitMainContact(e) {
-    e.preventDefault();
-    
-    // Get form values
-    const name = document.getElementById("mainContactName").value;
-    const phone = document.getElementById("mainContactPhone").value;
-    const email = document.getElementById("mainContactEmail").value;
-    const interest = document.getElementById("mainContactInterest").value;
-    const message = document.getElementById("mainContactMessage").value;
-    
-    // Simple validation
-    if (!name || !phone || !email || !interest || !message) {
-      alert("Please fill in all required fields.");
-      return;
-    }
-    
-    // Success message
-    alert("Thank you! We'll get back to you soon.");
-    
-    // Reset form
-    document.getElementById("mainContactForm").reset();
+function submitMainContact(e) {
+  e.preventDefault();
+  
+  // Get form values
+  const name = document.getElementById("mainContactName").value;
+  const phone = document.getElementById("mainContactPhone").value;
+  const email = document.getElementById("mainContactEmail").value;
+  const interest = document.getElementById("mainContactInterest").value;
+  const message = document.getElementById("mainContactMessage").value;
+  
+  // Simple validation
+  if (!name || !phone || !email || !interest || !message) {
+    showFeedback('error');
+    return;
   }
+  
+  // Simulate form submission (replace with actual API call)
+  // For demonstration, we'll show success 90% of the time
+  const isSuccess = Math.random() > 0.1; // 90% success rate for demo
+  
+  if (isSuccess) {
+    showFeedback('success');
+    document.getElementById("mainContactForm").reset();
+  } else {
+    showFeedback('error');
+  }
+}
+
+// Show feedback modal
+function showFeedback(type) {
+  if (type === 'success') {
+    document.getElementById('successOverlay').classList.add('active');
+  } else if (type === 'error') {
+    document.getElementById('errorOverlay').classList.add('active');
+  }
+}
+
+// Close feedback modal
+function closeFeedback(type) {
+  if (type === 'success') {
+    document.getElementById('successOverlay').classList.remove('active');
+  } else if (type === 'error') {
+    document.getElementById('errorOverlay').classList.remove('active');
+  }
+}
 </script>
 
 </body>
