@@ -1331,3 +1331,152 @@ body {
     font-size: 13px;
   }
 }
+/* ================= A SMARTER WAY TO FIND YOUR HOME ================= */
+.smarter-way-section {
+  display: flex;
+  width: 100%;
+  padding: 80px 120px;
+  justify-content: center;
+  align-items: center;
+  background: #fafafa;
+}
+
+.smarter-way-wrapper {
+  max-width: 1203px;
+  width: 100%;
+}
+
+.smarter-way-card {
+  display: flex;
+  width: 100%;
+  padding: 51px 61px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 16px;
+  background: url('../assets/images/Section7bg.png') lightgray 50% / cover no-repeat;
+  background-position: center;
+  position: relative;
+  min-height: 280px;
+}
+
+/* Dark overlay for better text readability */
+.smarter-way-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 16px;
+  z-index: 1;
+}
+
+.smarter-way-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 800px;
+}
+
+.smarter-way-title {
+  font-family: "Playfair Display", serif;
+  font-size: 42px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.gold-text {
+  background: linear-gradient(90deg, #DCB76D 0%, #F4D68D 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Playfair Display", serif;
+  font-size: 42px;
+  font-weight: 600;
+}
+
+.smarter-way-description {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
+  max-width: 700px;
+}
+
+/* ================= RESPONSIVE - TABLET ================= */
+@media (max-width: 1024px) {
+  .smarter-way-section {
+    padding: 60px 60px;
+  }
+  
+  .smarter-way-card {
+    padding: 45px 50px;
+    min-height: 260px;
+  }
+  
+  .smarter-way-title {
+    font-size: 36px;
+  }
+  
+  .gold-text {
+    font-size: 36px;
+  }
+  
+  .smarter-way-description {
+    font-size: 15px;
+  }
+}
+
+/* ================= RESPONSIVE - MOBILE ================= */
+@media (max-width: 768px) {
+  .smarter-way-section {
+    padding: 50px 24px;
+  }
+  
+  .smarter-way-card {
+    padding: 40px 32px;
+    min-height: 240px;
+  }
+  
+  .smarter-way-title {
+    font-size: 30px;
+  }
+  
+  .gold-text {
+    font-size: 30px;
+  }
+  
+  .smarter-way-description {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .smarter-way-section {
+    padding: 40px 20px;
+  }
+  
+  .smarter-way-card {
+    padding: 32px 24px;
+    min-height: 220px;
+    border-radius: 12px;
+  }
+  
+  .smarter-way-title {
+    font-size: 26px;
+  }
+  
+  .gold-text {
+    font-size: 26px;
+  }
+  
+  .smarter-way-description {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+}
