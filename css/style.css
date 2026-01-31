@@ -733,6 +733,7 @@ body {
     font-size: 13px;
   }
 }
+
 /* ================= HOW IT WORKS ================= */
 .how-it-works {
   display: flex;
@@ -742,8 +743,11 @@ body {
   justify-content: center;
   align-items: center;
   gap: 32px;
-  background: url('assets/images/Section4bg.png') lightgray 50% / cover no-repeat;
+  background-image: url('../assets/images/Section4bg.png');
+  background-color: #000814;
+  background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   background-attachment: fixed;
   position: relative;
   min-height: 600px;
