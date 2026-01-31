@@ -733,3 +733,223 @@ body {
     font-size: 13px;
   }
 }
+
+/* ================= HOW IT WORKS ================= */
+.how-it-works {
+  display: flex;
+  width: 100%;
+  padding: 120px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  background: url('../assets/images/Section4bg.png') lightgray 50% / cover no-repeat;
+  background-position: center;
+  position: relative;
+}
+
+/* Dark overlay for better text readability */
+.how-it-works::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 14, 38, 0.85);
+  z-index: 1;
+}
+
+.how-it-works-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.section-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+/* Main Content Layout */
+.how-it-works-content {
+  display: flex;
+  gap: 64px;
+  align-items: flex-start;
+}
+
+/* Left Image */
+.left-image {
+  flex: 0 0 380px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.left-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Steps Container */
+.steps-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Individual Step */
+.step-item {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+/* Step Number Circle */
+.step-number {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #DCB76D 0%, #F4D68D 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #000814;
+  box-shadow: 0 4px 12px rgba(220, 183, 109, 0.3);
+}
+
+/* Step Content */
+.step-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.step-label {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #b38226;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+.step-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.step-description {
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+/* ================= RESPONSIVE - TABLET ================= */
+@media (max-width: 1024px) {
+  .how-it-works {
+    padding: 80px 60px;
+  }
+  
+  .how-it-works-content {
+    gap: 40px;
+  }
+  
+  .left-image {
+    flex: 0 0 320px;
+  }
+  
+  .section-title {
+    font-size: 32px;
+    margin-bottom: 48px;
+  }
+}
+
+/* ================= RESPONSIVE - MOBILE ================= */
+@media (max-width: 768px) {
+  .how-it-works {
+    padding: 60px 24px;
+  }
+  
+  .section-title {
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
+  
+  .how-it-works-content {
+    flex-direction: column;
+    gap: 48px;
+  }
+  
+  .left-image {
+    flex: none;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .steps-container {
+    gap: 28px;
+  }
+  
+  .step-number {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+  }
+  
+  .step-title {
+    font-size: 18px;
+  }
+  
+  .step-description {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .how-it-works {
+    padding: 40px 20px;
+  }
+  
+  .section-title {
+    font-size: 24px;
+    margin-bottom: 32px;
+  }
+  
+  .step-item {
+    gap: 16px;
+  }
+  
+  .step-number {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+  
+  .step-title {
+    font-size: 16px;
+  }
+  
+  .step-description {
+    font-size: 13px;
+  }
+}
