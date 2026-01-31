@@ -370,6 +370,7 @@
     </form>
   </div>
 </div>
+
 <!-- ================= OUR SERVICES ================= -->
 <section class="our-services">
   <div class="services-container">
@@ -434,6 +435,7 @@
     
   </div>
 </section>  
+
 <!-- ================= A SMARTER WAY TO FIND YOUR HOME ================= -->
 <section class="smarter-way-section">
   <div class="smarter-way-wrapper">
@@ -449,8 +451,8 @@
     </div>
   </div>
 </section>
-<script>
-  <!-- ================= CONTACT SECTION ================= -->
+
+<!-- ================= CONTACT SECTION ================= -->
 <section class="contact-section">
   <div class="contact-container">
     
@@ -545,6 +547,10 @@
     
   </div>
 </section>
+
+<!-- ================= JAVASCRIPT ================= -->
+<script>
+  // Modal Functions for Header Enquiry Button
   function openModal() {
     document.getElementById("modalOverlay").classList.add("active");
   }
@@ -587,28 +593,31 @@
       closeModal();
     }
   }
-</script>
-function submitMainContact(e) {
-  e.preventDefault();
-  
-  // Get form values
-  const name = document.getElementById("mainContactName").value;
-  const phone = document.getElementById("mainContactPhone").value;
-  const email = document.getElementById("mainContactEmail").value;
-  const interest = document.getElementById("mainContactInterest").value;
-  const message = document.getElementById("mainContactMessage").value;
-  
-  // Simple validation
-  if (!name || !phone || !email || !interest || !message) {
-    alert("Please fill in all required fields.");
-    return;
+
+  // Main Contact Form Function
+  function submitMainContact(e) {
+    e.preventDefault();
+    
+    // Get form values
+    const name = document.getElementById("mainContactName").value;
+    const phone = document.getElementById("mainContactPhone").value;
+    const email = document.getElementById("mainContactEmail").value;
+    const interest = document.getElementById("mainContactInterest").value;
+    const message = document.getElementById("mainContactMessage").value;
+    
+    // Simple validation
+    if (!name || !phone || !email || !interest || !message) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+    
+    // Success message
+    alert("Thank you! We'll get back to you soon.");
+    
+    // Reset form
+    document.getElementById("mainContactForm").reset();
   }
-  
-  // Success message
-  alert("Thank you! We'll get back to you soon.");
-  
-  // Reset form
-  document.getElementById("mainContactForm").reset();
-}
+</script>
+
 </body>
 </html>
