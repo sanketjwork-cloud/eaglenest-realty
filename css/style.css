@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   background: #fafafa;
@@ -15,7 +19,7 @@ body {
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   height: 80px;
   background: linear-gradient(180deg, #000e26, #000814);
   border-bottom: 1px solid #c99f54;
@@ -50,9 +54,6 @@ body {
   transform: scale(1.05);
 }
 
-/* ================= GOOGLE FONTS ================= */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
-
 /* ================= HERO SECTION ================= */
 .hero-section {
   display: flex;
@@ -63,8 +64,6 @@ body {
   gap: 10px;
   min-height: 600px;
   position: relative;
-  
-  /* Desktop Image */
   background: url('../assets/images/Herosectionimg.png') lightgray 50% / cover no-repeat;
   background-position: center;
 }
@@ -92,7 +91,6 @@ body {
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Gradient Text for "Right" */
 .gradient-text {
   background: linear-gradient(90deg, #DCB76D 0%, #F4D68D 100%);
   background-clip: text;
@@ -115,10 +113,9 @@ body {
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* Hero CTA Button */
 .hero-cta {
   display: flex;
-  width: 140px; /* Fixed width */
+  width: 140px;
   padding: 11.75px 23.5px;
   justify-content: center;
   align-items: center;
@@ -146,7 +143,6 @@ body {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* ================= RESPONSIVE - TABLET ================= */
 @media (max-width: 1024px) {
   .hero-section {
     padding: 80px 60px;
@@ -166,13 +162,10 @@ body {
   }
 }
 
-/* ================= RESPONSIVE - MOBILE ================= */
 @media (max-width: 768px) {
   .hero-section {
     padding: 60px 24px;
     min-height: 500px;
-    
-    /* Mobile Image - Switch to vertical image */
     background: url('../assets/images/Mobileherosectionimg.png') lightgray 50% / cover no-repeat;
     background-position: center;
   }
@@ -196,6 +189,15 @@ body {
   .hero-cta {
     width: 100%;
     max-width: 300px;
+  }
+  
+  .header-cta {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+  
+  .brand img {
+    height: 30px;
   }
 }
 
@@ -306,7 +308,6 @@ body {
   font-weight: 400;
 }
 
-/* ================= MOBILE ================= */
 @media (max-width: 768px) {
   .what-we-do {
     padding: 60px 24px;
@@ -323,11 +324,11 @@ body {
   
   .rp {
     height: 300px;
-    flex: none; /* Remove flex sizing on mobile */
+    flex: none;
   }
 
   .stack {
-    flex: none; /* Remove flex sizing on mobile */
+    flex: none;
   }
   
   .card {
@@ -362,7 +363,7 @@ body {
   }
 }
 
-/* ================= MODAL OVERLAY ================= */
+/* ================= MODAL ================= */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -370,7 +371,7 @@ body {
   display: none;
   align-items: center;
   justify-content: center;
-  z-index: 9999;
+  z-index: 10000;
   backdrop-filter: blur(2px);
 }
 
@@ -378,7 +379,6 @@ body {
   display: flex;
 }
 
-/* ================= MODAL BOX ================= */
 .modal {
   background: #ffffff;
   width: 667px;
@@ -420,7 +420,6 @@ body {
   color: #141414;
 }
 
-/* ================= FORM FIELDS ================= */
 .form-field {
   display: flex;
   flex-direction: column;
@@ -449,13 +448,11 @@ body {
   cursor: pointer;
 }
 
-/* Error border */
 .form-field.error input,
 .form-field.error select {
   border-color: #E53935;
 }
 
-/* Error text */
 .error-text {
   display: none;
   font-size: 12px;
@@ -468,7 +465,6 @@ body {
   display: block;
 }
 
-/* ================= SUBMIT BUTTON ================= */
 .submit-btn {
   width: 100%;
   background: linear-gradient(to right, #e1c388, #b38226);
@@ -487,34 +483,6 @@ body {
   transform: translateY(-2px);
 }
 
-/* ================= MOBILE ================= */
-@media (max-width: 768px) {
-  .residential-projects {
-    flex-direction: column;
-  }
-  
-  .rp,
-  .card {
-    height: 260px;
-  }
-  
-  .modal {
-    width: 90%;
-    padding: 24px;
-  }
-  
-  .modal h2 {
-    font-size: 24px;
-  }
-  
-  .content h3 {
-    font-size: 22px;
-  }
-  
-  .content p {
-    font-size: 14px;
-  }
-}
 /* ================= PROJECTS WE WORK WITH ================= */
 .projects-section {
   display: inline-flex;
@@ -555,16 +523,14 @@ body {
   margin: 0 auto;
 }
 
-/* Projects Grid */
 .projects-grid {
   display: flex;
   gap: 24px;
   justify-content: center;
-  flex-wrap: nowrap; /* Keep all cards in one line */
-  overflow-x: auto; /* Allow horizontal scroll if needed on smaller screens */
+  flex-wrap: nowrap;
+  overflow-x: auto;
 }
 
-/* Project Card */
 .project-card {
   display: flex;
   width: 388px;
@@ -583,12 +549,11 @@ body {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
-/* Project Image */
 .project-image {
   width: 100%;
   height: 260px;
   overflow: hidden;
-  background: #f0f0f0; /* Fallback background if image doesn't load */
+  background: #f0f0f0;
 }
 
 .project-image img {
@@ -596,7 +561,7 @@ body {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  display: block; /* Remove any inline spacing */
+  display: block;
   transition: transform 0.3s ease;
 }
 
@@ -604,7 +569,6 @@ body {
   transform: scale(1.05);
 }
 
-/* Project Info */
 .project-info {
   padding: 0 24px 24px 24px;
   display: flex;
@@ -638,7 +602,6 @@ body {
   margin: 0;
 }
 
-/* View Project Link with Animated Arrow */
 .view-project-link {
   display: inline-flex;
   align-items: center;
@@ -657,7 +620,6 @@ body {
   color: #8b6520;
 }
 
-/* Animated Arrow Icon */
 .arrow-icon {
   width: 20px;
   height: 20px;
@@ -678,7 +640,6 @@ body {
   }
 }
 
-/* ================= MOBILE RESPONSIVE ================= */
 @media (max-width: 1024px) {
   .projects-section {
     padding: 56px 60px;
@@ -690,7 +651,7 @@ body {
   
   .project-card {
     width: 340px;
-    flex-shrink: 0; /* Prevent cards from shrinking */
+    flex-shrink: 0;
   }
 }
 
@@ -708,7 +669,7 @@ body {
   }
   
   .projects-grid {
-    flex-direction: column; /* Stack vertically on mobile */
+    flex-direction: column;
     flex-wrap: nowrap;
     align-items: center;
     overflow-x: visible;
@@ -717,6 +678,15 @@ body {
   .project-card {
     width: 100%;
     max-width: 388px;
+  }
+  
+  .modal {
+    width: 90%;
+    padding: 24px;
+  }
+  
+  .modal h2 {
+    font-size: 24px;
   }
 }
 
@@ -753,7 +723,6 @@ body {
   min-height: 600px;
 }
 
-/* Dark overlay for better text readability */
 .how-it-works::before {
   content: '';
   position: absolute;
@@ -778,14 +747,12 @@ body {
   margin-bottom: 56px;
 }
 
-/* Main Content Layout */
 .how-it-works-content {
   display: flex;
   gap: 64px;
   align-items: flex-start;
 }
 
-/* Left Image */
 .left-image {
   flex: 0 0 380px;
   border-radius: 12px;
@@ -800,7 +767,6 @@ body {
   object-fit: cover;
 }
 
-/* Steps Container */
 .steps-container {
   flex: 1;
   display: flex;
@@ -809,7 +775,6 @@ body {
   position: relative;
 }
 
-/* Vertical Timeline Line Behind Circles */
 .timeline-line {
   position: absolute;
   left: 24px;
@@ -820,7 +785,6 @@ body {
   z-index: 0;
 }
 
-/* Individual Step */
 .step-item {
   display: flex;
   gap: 20px;
@@ -829,7 +793,6 @@ body {
   z-index: 1;
 }
 
-/* Step Circle with Image */
 .step-circle {
   flex-shrink: 0;
   width: 48px;
@@ -845,7 +808,6 @@ body {
   object-fit: contain;
 }
 
-/* Step Content */
 .step-content {
   flex: 1;
   display: flex;
@@ -882,7 +844,6 @@ body {
   margin: 0;
 }
 
-/* ================= RESPONSIVE - TABLET ================= */
 @media (max-width: 1024px) {
   .how-it-works {
     padding: 80px 60px;
@@ -902,7 +863,6 @@ body {
   }
 }
 
-/* ================= RESPONSIVE - MOBILE ================= */
 @media (max-width: 768px) {
   .how-it-works {
     padding: 60px 24px;
@@ -978,6 +938,7 @@ body {
     font-size: 13px;
   }
 }
+
 /* ================= WHY BUYERS CHOOSE EAGLENEST ================= */
 .why-choose-us {
   display: flex;
@@ -1147,6 +1108,7 @@ body {
     font-size: 13px;
   }
 }
+
 /* ================= OUR SERVICES ================= */
 .our-services {
   display: flex;
@@ -1162,7 +1124,6 @@ body {
   min-height: 700px;
 }
 
-/* Dark overlay for better text readability */
 .our-services::before {
   content: '';
   position: absolute;
@@ -1188,7 +1149,6 @@ body {
   margin-bottom: 48px;
 }
 
-/* Services Grid - 2x2 Layout */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1196,7 +1156,6 @@ body {
   width: 100%;
 }
 
-/* Service Card */
 .service-card {
   display: flex;
   flex-direction: column;
@@ -1204,7 +1163,6 @@ body {
   background: transparent;
 }
 
-/* Service Image */
 .service-image {
   width: 100%;
   height: 280px;
@@ -1225,7 +1183,6 @@ body {
   transform: scale(1.05);
 }
 
-/* Service Content */
 .service-content {
   display: flex;
   flex-direction: column;
@@ -1251,7 +1208,6 @@ body {
   margin: 0;
 }
 
-/* ================= RESPONSIVE - TABLET ================= */
 @media (max-width: 1024px) {
   .services-container {
     padding: 0 60px;
@@ -1271,7 +1227,6 @@ body {
   }
 }
 
-/* ================= RESPONSIVE - MOBILE ================= */
 @media (max-width: 768px) {
   .our-services {
     padding: 60px 0;
@@ -1331,6 +1286,7 @@ body {
     font-size: 13px;
   }
 }
+
 /* ================= A SMARTER WAY TO FIND YOUR HOME ================= */
 .smarter-way-section {
   display: flex;
@@ -1360,7 +1316,6 @@ body {
   min-height: 280px;
 }
 
-/* Dark overlay for better text readability */
 .smarter-way-card::before {
   content: '';
   position: absolute;
@@ -1408,7 +1363,6 @@ body {
   max-width: 700px;
 }
 
-/* ================= RESPONSIVE - TABLET ================= */
 @media (max-width: 1024px) {
   .smarter-way-section {
     padding: 60px 60px;
@@ -1432,7 +1386,6 @@ body {
   }
 }
 
-/* ================= RESPONSIVE - MOBILE ================= */
 @media (max-width: 768px) {
   .smarter-way-section {
     padding: 50px 24px;
@@ -1480,6 +1433,7 @@ body {
     line-height: 1.5;
   }
 }
+
 /* ================= CONTACT SECTION ================= */
 .contact-section {
   display: flex;
@@ -1501,7 +1455,6 @@ body {
   align-items: start;
 }
 
-/* ================= LEFT SIDE ================= */
 .contact-left {
   display: flex;
   flex-direction: column;
@@ -1551,7 +1504,6 @@ body {
   max-width: 450px;
 }
 
-/* ================= RIGHT SIDE - FORM CARD ================= */
 .contact-right {
   width: 100%;
 }
@@ -1585,7 +1537,6 @@ body {
   margin: 0;
 }
 
-/* ================= FORM INPUTS ================= */
 .contact-input-group {
   display: flex;
   flex-direction: column;
@@ -1631,7 +1582,6 @@ body {
   color: #999;
 }
 
-/* ================= SUBMIT BUTTON ================= */
 .contact-submit-btn {
   width: 100%;
   background: #000;
@@ -1657,7 +1607,6 @@ body {
   transform: translateY(0);
 }
 
-/* ================= RESPONSIVE - TABLET ================= */
 @media (max-width: 1024px) {
   .contact-section {
     padding: 60px 60px;
@@ -1680,7 +1629,6 @@ body {
   }
 }
 
-/* ================= RESPONSIVE - MOBILE ================= */
 @media (max-width: 768px) {
   .contact-section {
     padding: 50px 24px;
