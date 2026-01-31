@@ -733,7 +733,6 @@ body {
     font-size: 13px;
   }
 }
-
 /* ================= HOW IT WORKS ================= */
 .how-it-works {
   display: flex;
@@ -743,9 +742,11 @@ body {
   justify-content: center;
   align-items: center;
   gap: 32px;
-  background: url('../assets/images/Section4bg.png') lightgray 50% / cover no-repeat;
+  background: url('assets/images/Section4bg.png') lightgray 50% / cover no-repeat;
   background-position: center;
+  background-attachment: fixed;
   position: relative;
+  min-height: 600px;
 }
 
 /* Dark overlay for better text readability */
@@ -753,7 +754,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0, 14, 38, 0.85);
+  background: rgba(0, 14, 38, 0.88);
   z-index: 1;
 }
 
@@ -801,6 +802,18 @@ body {
   display: flex;
   flex-direction: column;
   gap: 32px;
+  position: relative;
+}
+
+/* Vertical Timeline Line Behind Circles */
+.timeline-line {
+  position: absolute;
+  left: 24px;
+  top: 24px;
+  bottom: 24px;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.3);
+  z-index: 0;
 }
 
 /* Individual Step */
@@ -808,23 +821,24 @@ body {
   display: flex;
   gap: 20px;
   align-items: flex-start;
+  position: relative;
+  z-index: 1;
 }
 
-/* Step Number Circle */
-.step-number {
+/* Step Circle with Image */
+.step-circle {
   flex-shrink: 0;
   width: 48px;
   height: 48px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #DCB76D 0%, #F4D68D 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "Poppins", sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-  color: #000814;
-  box-shadow: 0 4px 12px rgba(220, 183, 109, 0.3);
+  position: relative;
+  z-index: 2;
+}
+
+.step-circle img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
 }
 
 /* Step Content */
@@ -833,13 +847,14 @@ body {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  padding-top: 4px;
 }
 
 .step-label {
   font-family: "Poppins", sans-serif;
   font-size: 14px;
   font-weight: 500;
-  color: #b38226;
+  color: #DCB76D;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin: 0;
@@ -910,10 +925,13 @@ body {
     gap: 28px;
   }
   
-  .step-number {
+  .timeline-line {
+    left: 20px;
+  }
+  
+  .step-circle {
     width: 44px;
     height: 44px;
-    font-size: 18px;
   }
   
   .step-title {
@@ -939,10 +957,13 @@ body {
     gap: 16px;
   }
   
-  .step-number {
+  .timeline-line {
+    left: 18px;
+  }
+  
+  .step-circle {
     width: 40px;
     height: 40px;
-    font-size: 16px;
   }
   
   .step-title {
