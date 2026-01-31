@@ -1005,7 +1005,6 @@ body {
   width: 100%;
 }
 
-/* Features Grid */
 .features-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1013,7 +1012,6 @@ body {
   width: 100%;
 }
 
-/* Feature Card */
 .feature-card {
   display: flex;
   flex-direction: column;
@@ -1023,15 +1021,12 @@ body {
   padding: 24px 32px;
   background: #fff;
   border-right: 1px solid #E0E0E0;
-  position: relative;
 }
 
-/* Remove border from last card in desktop view */
 .feature-card:last-child {
   border-right: none;
 }
 
-/* Feature Icon - Smaller Size */
 .feature-icon {
   width: 64px;
   height: 64px;
@@ -1048,7 +1043,6 @@ body {
   display: block;
 }
 
-/* Feature Title */
 .feature-title {
   font-family: "Poppins", sans-serif;
   font-size: 18px;
@@ -1058,7 +1052,6 @@ body {
   line-height: 1.4;
 }
 
-/* Feature Description */
 .feature-description {
   font-family: "Poppins", sans-serif;
   font-size: 14px;
@@ -1068,7 +1061,6 @@ body {
   margin: 0;
 }
 
-/* ================= RESPONSIVE - TABLET ================= */
 @media (max-width: 1024px) {
   .why-choose-us {
     padding: 60px 60px;
@@ -1078,18 +1070,15 @@ body {
     grid-template-columns: repeat(2, 1fr);
   }
   
-  /* Add borders for 2x2 grid */
   .feature-card {
     border-right: 1px solid #E0E0E0;
     border-bottom: 1px solid #E0E0E0;
   }
   
-  /* Remove right border from even cards (2nd and 4th) */
   .feature-card:nth-child(2n) {
     border-right: none;
   }
   
-  /* Remove bottom border from last two cards */
   .feature-card:nth-child(3),
   .feature-card:nth-child(4) {
     border-bottom: none;
@@ -1101,7 +1090,6 @@ body {
   }
 }
 
-/* ================= RESPONSIVE - MOBILE ================= */
 @media (max-width: 768px) {
   .why-choose-us {
     padding: 50px 24px;
@@ -1116,14 +1104,12 @@ body {
     grid-template-columns: 1fr;
   }
   
-  /* Stacked layout with bottom borders */
   .feature-card {
     padding: 32px 24px;
     border-right: none;
     border-bottom: 1px solid #E0E0E0;
   }
   
-  /* Remove border from last card */
   .feature-card:last-child {
     border-bottom: none;
   }
