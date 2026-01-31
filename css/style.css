@@ -978,3 +978,163 @@ body {
     font-size: 13px;
   }
 }
+/* ================= WHY BUYERS CHOOSE EAGLENEST ================= */
+.why-choose-us {
+  display: flex;
+  width: 100%;
+  padding: 60px 120px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  background: #FFF;
+}
+
+.why-choose-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.why-choose-title {
+  font-family: "Playfair Display", serif;
+  font-size: 36px;
+  font-weight: 600;
+  color: #141414;
+  text-align: center;
+  margin-bottom: 56px;
+  width: 100%;
+}
+
+/* Features Grid */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  width: 100%;
+}
+
+/* Feature Card */
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  padding: 24px 16px;
+  background: #fff;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Feature Icon */
+.feature-icon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.feature-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Feature Title */
+.feature-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #141414;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Feature Description */
+.feature-description {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #666;
+  margin: 0;
+}
+
+/* ================= RESPONSIVE - TABLET ================= */
+@media (max-width: 1024px) {
+  .why-choose-us {
+    padding: 60px 60px;
+  }
+  
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+  
+  .why-choose-title {
+    font-size: 32px;
+    margin-bottom: 48px;
+  }
+}
+
+/* ================= RESPONSIVE - MOBILE ================= */
+@media (max-width: 768px) {
+  .why-choose-us {
+    padding: 50px 24px;
+  }
+  
+  .why-choose-title {
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .feature-card {
+    padding: 32px 24px;
+  }
+  
+  .feature-icon {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .feature-title {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 480px) {
+  .why-choose-us {
+    padding: 40px 20px;
+  }
+  
+  .why-choose-title {
+    font-size: 24px;
+    margin-bottom: 32px;
+  }
+  
+  .feature-icon {
+    width: 64px;
+    height: 64px;
+  }
+  
+  .feature-title {
+    font-size: 16px;
+  }
+  
+  .feature-description {
+    font-size: 13px;
+  }
+}
