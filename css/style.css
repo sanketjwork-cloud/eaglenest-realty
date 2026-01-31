@@ -1147,3 +1147,187 @@ body {
     font-size: 13px;
   }
 }
+/* ================= OUR SERVICES ================= */
+.our-services {
+  display: flex;
+  width: 100%;
+  padding: 80px 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  background: url('../assets/images/Section6bg.png') lightgray 50% / cover no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  min-height: 700px;
+}
+
+/* Dark overlay for better text readability */
+.our-services::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 14, 38, 0.92);
+  z-index: 1;
+}
+
+.services-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 120px;
+}
+
+.services-title {
+  font-family: "Playfair Display", serif;
+  font-size: 36px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+/* Services Grid - 2x2 Layout */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  width: 100%;
+}
+
+/* Service Card */
+.service-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: transparent;
+}
+
+/* Service Image */
+.service-image {
+  width: 100%;
+  height: 280px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.service-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-image img {
+  transform: scale(1.05);
+}
+
+/* Service Content */
+.service-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+}
+
+.service-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.service-description {
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+/* ================= RESPONSIVE - TABLET ================= */
+@media (max-width: 1024px) {
+  .services-container {
+    padding: 0 60px;
+  }
+  
+  .services-title {
+    font-size: 32px;
+    margin-bottom: 40px;
+  }
+  
+  .services-grid {
+    gap: 28px;
+  }
+  
+  .service-image {
+    height: 240px;
+  }
+}
+
+/* ================= RESPONSIVE - MOBILE ================= */
+@media (max-width: 768px) {
+  .our-services {
+    padding: 60px 0;
+  }
+  
+  .services-container {
+    padding: 0 24px;
+  }
+  
+  .services-title {
+    font-size: 28px;
+    margin-bottom: 32px;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  
+  .service-image {
+    height: 260px;
+  }
+  
+  .service-title {
+    font-size: 18px;
+  }
+  
+  .service-description {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .our-services {
+    padding: 50px 0;
+  }
+  
+  .services-container {
+    padding: 0 20px;
+  }
+  
+  .services-title {
+    font-size: 24px;
+    margin-bottom: 28px;
+  }
+  
+  .service-image {
+    height: 220px;
+    border-radius: 12px;
+  }
+  
+  .service-title {
+    font-size: 17px;
+  }
+  
+  .service-description {
+    font-size: 13px;
+  }
+}
