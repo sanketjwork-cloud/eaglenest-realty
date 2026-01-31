@@ -450,6 +450,101 @@
   </div>
 </section>
 <script>
+  <!-- ================= CONTACT SECTION ================= -->
+<section class="contact-section">
+  <div class="contact-container">
+    
+    <!-- Left Side: Heading & Description -->
+    <div class="contact-left">
+      <div class="eagle-logo">
+        <img src="assets/images/Eaglehead.png" alt="Eagle Logo" />
+      </div>
+      <h2 class="contact-title">
+        Let's Find You the<br><span class="gold-highlight">Right Nest</span>
+      </h2>
+      <p class="contact-subtitle">
+        Connect with our property advisors and discover curated projects tailored to your investment goals.
+      </p>
+    </div>
+    
+    <!-- Right Side: Contact Form -->
+    <div class="contact-right">
+      <div class="contact-form-card">
+        
+        <div class="form-header">
+          <img src="assets/images/handshake.png" alt="Connect" class="handshake-icon" />
+          <h3 class="form-title">Connect with us</h3>
+        </div>
+        
+        <form id="contactForm" onsubmit="submitContact(event)">
+          
+          <!-- Name Field -->
+          <div class="input-group">
+            <label for="contactName">Your name <span class="required">*</span></label>
+            <input 
+              type="text" 
+              id="contactName" 
+              placeholder="Enter your full name" 
+              required
+            />
+          </div>
+          
+          <!-- Phone Field -->
+          <div class="input-group">
+            <label for="contactPhone">Phone number <span class="required">*</span></label>
+            <input 
+              type="tel" 
+              id="contactPhone" 
+              placeholder="+91 xxx xxx xxxx" 
+              required
+            />
+          </div>
+          
+          <!-- Email Field -->
+          <div class="input-group">
+            <label for="contactEmail">Email Address <span class="required">*</span></label>
+            <input 
+              type="email" 
+              id="contactEmail" 
+              placeholder="yourname@gmail.com" 
+              required
+            />
+          </div>
+          
+          <!-- Interest Field -->
+          <div class="input-group">
+            <label for="contactInterest">Interest <span class="required">*</span></label>
+            <input 
+              type="text" 
+              id="contactInterest" 
+              placeholder="Eg: Residential Projects" 
+              required
+            />
+          </div>
+          
+          <!-- Message Field -->
+          <div class="input-group">
+            <label for="contactMessage">Message <span class="required">*</span></label>
+            <textarea 
+              id="contactMessage" 
+              rows="4" 
+              placeholder="Tell us about your requirements - budget, location preferences, project type, timeline, etc."
+              required
+            ></textarea>
+          </div>
+          
+          <!-- Submit Button -->
+          <button type="submit" class="contact-submit-btn">
+            Enquire
+          </button>
+          
+        </form>
+        
+      </div>
+    </div>
+    
+  </div>
+</section>
   function openModal() {
     document.getElementById("modalOverlay").classList.add("active");
   }
