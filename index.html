@@ -651,8 +651,10 @@
   </div>
 </footer>
 <script>
-  // ================= ZAPIER WEBHOOK URL =================
-  const ZAPIER_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/26456956/uev5h5b/';
+  <script>
+  // ================= ZAPIER WEBHOOK URLS =================
+  const MODAL_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/26456956/uev5h5b/';
+  const CONTACT_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/26456956/uevrnr4/';
 
   // ================= MODAL FUNCTIONS =================
   function openModal() {
@@ -700,10 +702,12 @@
         email: document.getElementById("email").value,
         phone: document.getElementById("phone").value,
         interest: document.getElementById("interest").value,
-        message: "", // Modal form doesn't have message field
+        message: "",
         source: "Modal Enquiry Form",
         timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
       };
+
+      console.log("Sending modal data to Zapier:", formData);
 
       // Show loading state
       const submitBtn = e.target.querySelector('button[type="submit"]');
@@ -711,21 +715,20 @@
       submitBtn.textContent = "Sending...";
       submitBtn.disabled = true;
 
-      // Send to Zapier
-      fetch(ZAPIER_WEBHOOK_URL, {
+      // Send to Zapier - MODAL WEBHOOK
+      fetch(MODAL_WEBHOOK_URL, {
         method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify(formData)
       })
-      .then(response => {
-        if (response.ok) {
-          alert("Enquiry submitted successfully! We'll get back to you soon.");
-          document.getElementById("enquiryForm").reset();
-          closeModal();
-        } else {
-          alert("Enquiry received! We'll contact you shortly.");
-          document.getElementById("enquiryForm").reset();
-          closeModal();
-        }
+      .then(() => {
+        console.log("Modal data sent successfully!");
+        alert("Enquiry submitted successfully! We'll get back to you soon.");
+        document.getElementById("enquiryForm").reset();
+        closeModal();
       })
       .catch(error => {
         console.error('Error:', error);
@@ -768,25 +771,27 @@
       timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
     };
     
+    console.log("Sending contact form data to Zapier:", formData);
+    
     // Show loading state
     const submitBtn = e.target.querySelector('button[type="submit"]');
     const originalText = submitBtn.textContent;
     submitBtn.textContent = "Sending...";
     submitBtn.disabled = true;
     
-    // Send to Zapier
-    fetch(ZAPIER_WEBHOOK_URL, {
+    // Send to Zapier - CONTACT FORM WEBHOOK
+    fetch(CONTACT_WEBHOOK_URL, {
       method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify(formData)
     })
-    .then(response => {
-      if (response.ok) {
-        alert("Thank you! We'll get back to you soon.");
-        document.getElementById("mainContactForm").reset();
-      } else {
-        alert("Message received! We'll contact you shortly.");
-        document.getElementById("mainContactForm").reset();
-      }
+    .then(() => {
+      console.log("Contact form data sent successfully!");
+      alert("Thank you! We'll get back to you soon.");
+      document.getElementById("mainContactForm").reset();
     })
     .catch(error => {
       console.error('Error:', error);
@@ -799,52 +804,3 @@
     });
   }
 </script>
-```
-
-**What I've added:**
-
-✅ **Your Zapier webhook URL** is now connected  
-✅ **Loading state** - Button shows "Sending..." while submitting  
-✅ **Indian timezone** - Timestamps show IST (Asia/Kolkata)  
-✅ **Error handling** - Graceful fallbacks if network fails  
-✅ **Form data includes:**
-   - Name
-   - Email
-   - Phone
-   - Interest
-   - Message (for main contact form)
-   - Source (which form it came from)
-   - Timestamp (date and time)
-
-## Next Steps in Zapier:
-
-1. **Go to your Zap** and click "Test trigger"
-2. **Submit a test form** on your website
-3. **Zapier will catch the data** - you should see all fields
-4. **Add Email action:**
-   - Choose "Email by Zapier" or "Gmail"
-   - Set your email address
-   - Create email template with the fields
-
-**Sample Email Template for Zapier:**
-```
-Subject: 🏠 New Enquiry - {{source}}
-
-NEW ENQUIRY FROM EAGLENEST REALTY WEBSITE
-
-📋 DETAILS:
-━━━━━━━━━━━━━━━━━━━━
-Name: {{name}}
-Email: {{email}}
-Phone: {{phone}}
-Interest: {{interest}}
-Message: {{message}}
-
-📍 Source: {{source}}
-🕒 Submitted: {{timestamp}}
-
-━━━━━━━━━━━━━━━━━━━━
-Please respond as soon as possible!
-
-
-  
