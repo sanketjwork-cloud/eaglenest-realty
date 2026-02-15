@@ -652,9 +652,9 @@
 </footer>
 <script>
   <script>
-  // ================= ZAPIER WEBHOOK URLS =================
-  const MODAL_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/26456956/uev5h5b/';
-  const CONTACT_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/26456956/uevrnr4/';
+ <script>
+  // ================= ZAPIER WEBHOOK URL =================
+  const ZAPIER_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/26456956/uev5h5b/';
 
   // ================= MODAL FUNCTIONS =================
   function openModal() {
@@ -707,7 +707,7 @@
         timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
       };
 
-      console.log("Sending modal data to Zapier:", formData);
+      console.log("Sending data to Zapier:", formData);
 
       // Show loading state
       const submitBtn = e.target.querySelector('button[type="submit"]');
@@ -715,8 +715,8 @@
       submitBtn.textContent = "Sending...";
       submitBtn.disabled = true;
 
-      // Send to Zapier - MODAL WEBHOOK
-      fetch(MODAL_WEBHOOK_URL, {
+      // Send to Zapier
+      fetch(ZAPIER_WEBHOOK_URL, {
         method: 'POST',
         mode: 'no-cors',
         headers: {
@@ -725,7 +725,7 @@
         body: JSON.stringify(formData)
       })
       .then(() => {
-        console.log("Modal data sent successfully!");
+        console.log("Data sent successfully!");
         alert("Enquiry submitted successfully! We'll get back to you soon.");
         document.getElementById("enquiryForm").reset();
         closeModal();
@@ -742,8 +742,11 @@
       });
     }
   }
+</script>
+<script>
+  // ================= SECTION 8 CONTACT FORM - SEPARATE WEBHOOK =================
+  const CONTACT_FORM_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/26456956/uevrnr4/';
 
-  // ================= MAIN CONTACT FORM SUBMISSION =================
   function submitMainContact(e) {
     e.preventDefault();
     
@@ -767,11 +770,11 @@
       email: email,
       interest: interest,
       message: message,
-      source: "Main Contact Form",
+      source: "Main Contact Form - Section 8",
       timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
     };
     
-    console.log("Sending contact form data to Zapier:", formData);
+    console.log("Sending Section 8 contact form data to Zapier:", formData);
     
     // Show loading state
     const submitBtn = e.target.querySelector('button[type="submit"]');
@@ -779,8 +782,8 @@
     submitBtn.textContent = "Sending...";
     submitBtn.disabled = true;
     
-    // Send to Zapier - CONTACT FORM WEBHOOK
-    fetch(CONTACT_WEBHOOK_URL, {
+    // Send to Zapier - SECTION 8 WEBHOOK
+    fetch(CONTACT_FORM_WEBHOOK_URL, {
       method: 'POST',
       mode: 'no-cors',
       headers: {
@@ -789,7 +792,7 @@
       body: JSON.stringify(formData)
     })
     .then(() => {
-      console.log("Contact form data sent successfully!");
+      console.log("Section 8 contact form data sent successfully!");
       alert("Thank you! We'll get back to you soon.");
       document.getElementById("mainContactForm").reset();
     })
