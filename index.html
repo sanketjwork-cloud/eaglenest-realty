@@ -334,39 +334,7 @@
     <h2>Enquire Now</h2>
 
     <form id="enquiryForm" onsubmit="submitEnquiry(event)">
-
-      <div class="form-field">
-        <input type="text" id="name" placeholder="Full Name" />
-        <span class="error-text">This field is required</span>
-      </div>
-
-      <div class="form-field">
-        <input type="email" id="email" placeholder="Email Address" />
-        <span class="error-text">This field is required</span>
-      </div>
-
-      <div class="form-field">
-        <input type="tel" id="phone" placeholder="Phone Number" />
-        <span class="error-text">This field is required</span>
-      </div>
-
-      <div class="form-field">
-        <select id="interest">
-          <option value="">Select interest</option>
-          <option>Luxury Residential</option>
-          <option>Affordable Housing</option>
-          <option>Under-Construction Projects</option>
-          <option>Ready-to-Move Homes</option>
-          <option>Retail / Showrooms</option>
-          <option>Other</option>
-        </select>
-        <span class="error-text">This field is required</span>
-      </div>
-
-      <button type="submit" class="submit-btn">
-        Submit Enquiry
-      </button>
-
+      <!-- form fields here -->
     </form>
   </div>
 </div>
@@ -678,6 +646,33 @@
     });
   }
 
+  <script>
+  // ================= ZAPIER WEBHOOK URLS =================
+  const MODAL_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/26456956/uev5h5b/';
+  const CONTACT_FORM_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/26456956/uevrnr4/';
+
+  // ================= MODAL FUNCTIONS =================
+  function openModal() {
+    document.getElementById("modalOverlay").classList.add("active");
+  }
+
+  function closeModal() {
+    document.getElementById("modalOverlay").classList.remove("active");
+    clearErrors();
+  }
+
+  function closeOnOutside(e) {
+    if (e.target.id === "modalOverlay") {
+      closeModal();
+    }
+  }
+
+  function clearErrors() {
+    document.querySelectorAll(".form-field").forEach(field => {
+      field.classList.remove("error");
+    });
+  }
+
   // ================= MODAL FORM SUBMISSION =================
   function submitEnquiry(e) {
     e.preventDefault();
@@ -707,7 +702,7 @@
         timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
       };
 
-      console.log("Sending data to Zapier:", formData);
+      console.log("Sending modal data to Zapier:", formData);
 
       // Show loading state
       const submitBtn = e.target.querySelector('button[type="submit"]');
@@ -716,7 +711,7 @@
       submitBtn.disabled = true;
 
       // Send to Zapier
-      fetch(ZAPIER_WEBHOOK_URL, {
+      fetch(MODAL_WEBHOOK_URL, {
         method: 'POST',
         mode: 'no-cors',
         headers: {
@@ -725,7 +720,7 @@
         body: JSON.stringify(formData)
       })
       .then(() => {
-        console.log("Data sent successfully!");
+        console.log("Modal data sent successfully!");
         alert("Enquiry submitted successfully! We'll get back to you soon.");
         document.getElementById("enquiryForm").reset();
         closeModal();
@@ -742,11 +737,8 @@
       });
     }
   }
-</script>
-<script>
-  // ================= SECTION 8 CONTACT FORM - SEPARATE WEBHOOK =================
-  const CONTACT_FORM_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/26456956/uevrnr4/';
 
+  // ================= MAIN CONTACT FORM SUBMISSION =================
   function submitMainContact(e) {
     e.preventDefault();
     
@@ -782,7 +774,7 @@
     submitBtn.textContent = "Sending...";
     submitBtn.disabled = true;
     
-    // Send to Zapier - SECTION 8 WEBHOOK
+    // Send to Zapier
     fetch(CONTACT_FORM_WEBHOOK_URL, {
       method: 'POST',
       mode: 'no-cors',
