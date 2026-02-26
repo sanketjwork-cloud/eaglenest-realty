@@ -4,29 +4,56 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eaglenest Realty</title>
-
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
+  
+  <style>
+    /* CRITICAL MODAL FIX - Add this inline to ensure modals work */
+    .modal-overlay {
+      position: fixed !important;
+      inset: 0 !important;
+      background: rgba(0, 0, 0, 0.6) !important;
+      display: none !important;
+      align-items: center !important;
+      justify-content: center !important;
+      z-index: 10001 !important;
+      backdrop-filter: blur(2px) !important;
+    }
+
+    .modal-overlay.active {
+      display: flex !important;
+    }
+
+    .feedback-overlay {
+      position: fixed !important;
+      inset: 0 !important;
+      background: rgba(0, 0, 0, 0.6) !important;
+      display: none !important;
+      align-items: center !important;
+      justify-content: center !important;
+      z-index: 10002 !important;
+      backdrop-filter: blur(4px) !important;
+    }
+
+    .feedback-overlay.active {
+      display: flex !important;
+    }
+  </style>
 </head>
   
 <body>
-<!-- ================= HEADER ================= -->
+<!-- HEADER -->
 <header class="site-header">
   <div class="header-content">
     <div class="brand">
       <img src="assets/images/Eaglenesthorizontal.png" alt="Eaglenest Realty" />
     </div>
-
-   <button class="hero-cta" onclick="openModal()">
-  Enquire
-</button>
+    <button class="hero-cta" onclick="openModal()">Enquire</button>
   </div>
 </header>
 
-<!-- ================= HERO SECTION ================= -->
+<!-- HERO SECTION -->
 <section class="hero-section">
   <div class="hero-content">
     <div class="hero-text">
@@ -37,37 +64,27 @@
       <p class="hero-subtitle">
         We help you discover, compare, and close the best residential projects and rental homes across Mumbai and Pune — transparently, quickly, and at the right price.
       </p>
-      <button class="hero-cta" onclick="openModal()">
-        Enquire
-      </button>
+      <button class="hero-cta" onclick="openModal()">Enquire</button>
     </div>
   </div>
 </section>
 
-<!-- ================= WHAT WE DO ================= -->
+<!-- WHAT WE DO -->
 <section class="what-we-do">
-
   <div class="section-header-wwd">
     <h2>What We Do at Eaglenest</h2>
   </div>
 
   <div class="residential-projects">
-
-    <!-- LEFT LARGE CARD -->
     <div class="rp" style="background-image:url('assets/images/rp0.png')">
       <div class="overlay"></div>
       <div class="content">
         <h3>Residential Projects</h3>
-        <p>
-          Access verified new-launch and ready-to-move residential projects
-          from reputed developers across Mumbai and Pune — all in one place.
-        </p>
+        <p>Access verified new-launch and ready-to-move residential projects from reputed developers across Mumbai and Pune — all in one place.</p>
       </div>
     </div>
 
-    <!-- RIGHT STACK -->
     <div class="stack">
-
       <div class="card" style="background-image:url('assets/images/rental0.png')">
         <div class="overlay"></div>
         <div class="content">
@@ -83,11 +100,9 @@
           <p>From site visits to negotiation and paperwork — we stay with you.</p>
         </div>
       </div>
-
     </div>
   </div>
 
-  <!-- FULL WIDTH REDEVELOPMENT CARD -->
   <div class="full-width-card-container">
     <div class="full-width-card" style="background-image:url('assets/images/redevelopment.jpg')">
       <div class="overlay"></div>
@@ -97,13 +112,11 @@
       </div>
     </div>
   </div>
-
 </section>
 
-<!-- ================= PROJECTS WE WORK WITH ================= -->
+<!-- PROJECTS WE WORK WITH -->
 <section class="projects-section">
   <div class="projects-container">
-    
     <div class="section-header">
       <h2>Projects We Work With</h2>
       <p class="section-subtitle">
@@ -113,8 +126,6 @@
     </div>
 
     <div class="projects-grid">
-      
-      <!-- Card 1 -->
       <div class="project-card">
         <div class="project-image">
           <img src="assets/images/jb99.png" alt="JB99 Project" />
@@ -123,21 +134,17 @@
           <span class="project-label">Lower Parel</span>
           <h3 class="project-title">JB99</h3>
           <p class="project-description">
-            At the heart of a close-knit neighbourhood, JB99 offers spacious 
-            homes that stand apart in the area. With modern amenities, 
-            thoughtful design, and a prime location, it's the perfect place 
-            to call home.
+            At the heart of a close-knit neighbourhood, JB99 offers spacious homes that stand apart in the area.
           </p>
           <a href="project-details.html" class="view-project-link">
             View Project
-            <svg class="arrow-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg class="arrow-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
               <path d="M4.16669 10H15.8334M15.8334 10L10 4.16669M15.8334 10L10 15.8334" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </a>
         </div>
       </div>
 
-      <!-- Card 2 -->
       <div class="project-card">
         <div class="project-image">
           <img src="assets/images/jb99.png" alt="One Luxe Project" />
@@ -146,21 +153,12 @@
           <span class="project-label">Lower Parel</span>
           <h3 class="project-title">One Luxe</h3>
           <p class="project-description">
-            At the heart of a close-knit neighbourhood, JB99 offers spacious 
-            homes that stand apart in the area. With modern amenities, 
-            thoughtful design, and a prime location, it's the perfect place 
-            to call home.
+            At the heart of a close-knit neighbourhood, JB99 offers spacious homes that stand apart in the area.
           </p>
-          <a href="project-details.html" class="view-project-link">
-            View Project
-            <svg class="arrow-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.16669 10H15.8334M15.8334 10L10 4.16669M15.8334 10L10 15.8334" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
+          <a href="project-details.html" class="view-project-link">View Project <svg class="arrow-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4.16669 10H15.8334M15.8334 10L10 4.16669M15.8334 10L10 15.8334" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </div>
 
-      <!-- Card 3 -->
       <div class="project-card">
         <div class="project-image">
           <img src="assets/images/jb99.png" alt="Insignia Project" />
@@ -169,243 +167,149 @@
           <span class="project-label">Lower Parel</span>
           <h3 class="project-title">Insignia</h3>
           <p class="project-description">
-            At the heart of a close-knit neighbourhood, JB99 offers spacious 
-            homes that stand apart in the area. With modern amenities, 
-            thoughtful design, and a prime location, it's the perfect place 
-            to call home.
+            At the heart of a close-knit neighbourhood, JB99 offers spacious homes that stand apart in the area.
           </p>
-          <a href="project-details.html" class="view-project-link">
-            View Project
-            <svg class="arrow-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.16669 10H15.8334M15.8334 10L10 4.16669M15.8334 10L10 15.8334" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
+          <a href="project-details.html" class="view-project-link">View Project <svg class="arrow-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4.16669 10H15.8334M15.8334 10L10 4.16669M15.8334 10L10 15.8334" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </div>
-
     </div>
-
   </div>
 </section>
-  
-<!-- ================= HOW IT WORKS ================= -->
+
+<!-- HOW IT WORKS -->
 <section class="how-it-works">
   <div class="how-it-works-container">
-    
     <h2 class="section-title">How It Works</h2>
-    
     <div class="how-it-works-content">
-      
-      <!-- Left Image -->
       <div class="left-image">
         <img src="assets/images/Section4leftimage.png" alt="Professional Consultation" />
       </div>
       
-      <!-- Right Steps -->
       <div class="steps-container">
-        
-        <!-- Vertical Line Behind Circles -->
         <div class="timeline-line"></div>
         
-        <!-- Step 1 -->
         <div class="step-item">
-          <div class="step-circle">
-            <img src="assets/images/Timelinecircle.png" alt="Step 1" />
-          </div>
+          <div class="step-circle"><img src="assets/images/Timelinecircle.png" alt="Step 1" /></div>
           <div class="step-content">
             <h4 class="step-label">Step 1</h4>
             <h3 class="step-title">Tell Us What You're Looking For</h3>
-            <p class="step-description">
-              Share your budget, location preferences, and whether you're buying or renting.
-            </p>
+            <p class="step-description">Share your budget, location preferences, and whether you're buying or renting.</p>
           </div>
         </div>
         
-        <!-- Step 2 -->
         <div class="step-item">
-          <div class="step-circle">
-            <img src="assets/images/Timelinecircle.png" alt="Step 2" />
-          </div>
+          <div class="step-circle"><img src="assets/images/Timelinecircle.png" alt="Step 2" /></div>
           <div class="step-content">
             <h4 class="step-label">Step 2</h4>
             <h3 class="step-title">Curated Options, Not Overload</h3>
-            <p class="step-description">
-              We shortlist projects and homes that actually match your needs — no spam, no irrelevant listings.
-            </p>
+            <p class="step-description">We shortlist projects and homes that actually match your needs — no spam, no irrelevant listings.</p>
           </div>
         </div>
         
-        <!-- Step 3 -->
         <div class="step-item">
-          <div class="step-circle">
-            <img src="assets/images/Timelinecircle.png" alt="Step 3" />
-          </div>
+          <div class="step-circle"><img src="assets/images/Timelinecircle.png" alt="Step 3" /></div>
           <div class="step-content">
             <h4 class="step-label">Step 3</h4>
             <h3 class="step-title">Site Visits & Comparisons</h3>
-            <p class="step-description">
-              We arrange site visits, explain project pros & cons, and help you compare transparently.
-            </p>
+            <p class="step-description">We arrange site visits, explain project pros & cons, and help you compare transparently.</p>
           </div>
         </div>
         
-        <!-- Step 4 -->
         <div class="step-item">
-          <div class="step-circle">
-            <img src="assets/images/Timelinecircle.png" alt="Step 4" />
-          </div>
+          <div class="step-circle"><img src="assets/images/Timelinecircle.png" alt="Step 4" /></div>
           <div class="step-content">
             <h4 class="step-label">Step 4</h4>
             <h3 class="step-title">Price & Negotiation Support</h3>
-            <p class="step-description">
-              As a channel partner, we help you get the best available pricing and offers.
-            </p>
+            <p class="step-description">As a channel partner, we help you get the best available pricing and offers.</p>
           </div>
         </div>
         
-        <!-- Step 5 -->
         <div class="step-item">
-          <div class="step-circle">
-            <img src="assets/images/Timelinecircle.png" alt="Step 5" />
-          </div>
+          <div class="step-circle"><img src="assets/images/Timelinecircle.png" alt="Step 5" /></div>
           <div class="step-content">
             <h4 class="step-label">Step 5</h4>
             <h3 class="step-title">Smooth Closure & Handover</h3>
-            <p class="step-description">
-              We assist till booking, documentation and possession — hassle-free.
-            </p>
+            <p class="step-description">We assist till booking, documentation and possession — hassle-free.</p>
           </div>
         </div>
-        
       </div>
     </div>
-    
   </div>
 </section>
-  
-<!-- ================= WHY BUYERS CHOOSE EAGLENEST ================= -->
+
+<!-- WHY BUYERS CHOOSE EAGLENEST -->
 <section class="why-choose-us">
   <div class="why-choose-container">
-    
     <h2 class="why-choose-title">Why Buyers Choose Eaglenest</h2>
-    
     <div class="features-grid">
-      
-      <!-- Feature 1 -->
       <div class="feature-card">
-        <div class="feature-icon">
-          <img src="assets/images/IU.png" alt="Independent & Unbiased" />
-        </div>
+        <div class="feature-icon"><img src="assets/images/IU.png" alt="Independent & Unbiased" /></div>
         <h3 class="feature-title">Independent & Unbiased</h3>
-        <p class="feature-description">
-          We are channel partners — not builders. Our advice is based on what's right for you, not commissions.
-        </p>
+        <p class="feature-description">We are channel partners — not builders. Our advice is based on what's right for you, not commissions.</p>
       </div>
       
-      <!-- Feature 2 -->
       <div class="feature-card">
-        <div class="feature-icon">
-          <img src="assets/images/VPO.png" alt="Verified Projects Only" />
-        </div>
+        <div class="feature-icon"><img src="assets/images/VPO.png" alt="Verified Projects Only" /></div>
         <h3 class="feature-title">Verified Projects Only</h3>
-        <p class="feature-description">
-          We work only with trusted developers and genuine rental listings — no fake promises.
-        </p>
+        <p class="feature-description">We work only with trusted developers and genuine rental listings — no fake promises.</p>
       </div>
       
-      <!-- Feature 3 -->
       <div class="feature-card">
-        <div class="feature-icon">
-          <img src="assets/images/BVD.png" alt="Better Value, Better Deals" />
-        </div>
+        <div class="feature-icon"><img src="assets/images/BVD.png" alt="Better Value, Better Deals" /></div>
         <h3 class="feature-title">Better Value, Better Deals</h3>
-        <p class="feature-description">
-          Early-access pricing, exclusive inventory, and rental options at competitive rates.
-        </p>
+        <p class="feature-description">Early-access pricing, exclusive inventory, and rental options at competitive rates.</p>
       </div>
       
-      <!-- Feature 4 -->
       <div class="feature-card">
-        <div class="feature-icon">
-          <img src="assets/images/SPOC.png" alt="Single Point of Contact" />
-        </div>
+        <div class="feature-icon"><img src="assets/images/SPOC.png" alt="Single Point of Contact" /></div>
         <h3 class="feature-title">Single Point of Contact</h3>
-        <p class="feature-description">
-          One advisor. Clear communication. No run-around.
-        </p>
+        <p class="feature-description">One advisor. Clear communication. No run-around.</p>
       </div>
-      
     </div>
-    
   </div>
 </section>
 
-<!-- ================= OUR SERVICES ================= -->
+<!-- OUR SERVICES -->
 <section class="our-services">
   <div class="services-container">
-    
     <h2 class="services-title">Our Services</h2>
-    
     <div class="services-grid">
-      
-      <!-- Service 1: New Residential Projects -->
       <div class="service-card">
-        <div class="service-image">
-          <img src="assets/images/NRP.png" alt="New Residential Projects" />
-        </div>
+        <div class="service-image"><img src="assets/images/NRP.png" alt="New Residential Projects" /></div>
         <div class="service-content">
           <h3 class="service-title">New Residential Projects</h3>
-          <p class="service-description">
-            Apartments and gated communities from reputed developers in prime and emerging locations.
-          </p>
+          <p class="service-description">Apartments and gated communities from reputed developers in prime and emerging locations.</p>
         </div>
       </div>
       
-      <!-- Service 2: Ready-to-Move Homes -->
       <div class="service-card">
-        <div class="service-image">
-          <img src="assets/images/R2M.png" alt="Ready-to-Move Homes" />
-        </div>
+        <div class="service-image"><img src="assets/images/R2M.png" alt="Ready-to-Move Homes" /></div>
         <div class="service-content">
           <h3 class="service-title">Ready-to-Move Homes</h3>
-          <p class="service-description">
-            Immediate possession homes for buyers who want certainty and speed.
-          </p>
+          <p class="service-description">Immediate possession homes for buyers who want certainty and speed.</p>
         </div>
       </div>
       
-      <!-- Service 3: Rental Homes -->
       <div class="service-card">
-        <div class="service-image">
-          <img src="assets/images/RH.png" alt="Rental Homes" />
-        </div>
+        <div class="service-image"><img src="assets/images/RH.png" alt="Rental Homes" /></div>
         <div class="service-content">
           <h3 class="service-title">Rental Homes</h3>
-          <p class="service-description">
-            Affordable rental options for families, working professionals, and students.
-          </p>
+          <p class="service-description">Affordable rental options for families, working professionals, and students.</p>
         </div>
       </div>
       
-      <!-- Service 4: Investment Guidance -->
       <div class="service-card">
-        <div class="service-image">
-          <img src="assets/images/IG.png" alt="Investment Guidance" />
-        </div>
+        <div class="service-image"><img src="assets/images/IG.png" alt="Investment Guidance" /></div>
         <div class="service-content">
           <h3 class="service-title">Investment Guidance</h3>
-          <p class="service-description">
-            Looking at property as an investment? We help evaluate ROI, rental yields, and growth potential.
-          </p>
+          <p class="service-description">Looking at property as an investment? We help evaluate ROI, rental yields, and growth potential.</p>
         </div>
       </div>
-      
     </div>
-    
   </div>
-</section>  
+</section>
 
-<!-- ================= A SMARTER WAY TO FIND YOUR HOME ================= -->
+<!-- A SMARTER WAY -->
 <section class="smarter-way-section">
   <div class="smarter-way-wrapper">
     <div class="smarter-way-card">
@@ -421,74 +325,25 @@
   </div>
 </section>
 
-<!-- ================= CONTACT BANNER SECTION ================= -->
+<!-- CONTACT BANNER -->
 <section class="contact-banner-section">
   <div class="contact-banner-container">
-    
-    <div class="eagle-logo">
-      <img src="assets/images/Eaglehead.png" alt="Eagle Logo" />
-    </div>
-    
-    <h2 class="banner-title">
-      Let's Find You the<br><span class="gold-highlight">Right Nest</span>
-    </h2>
-    
-    <p class="banner-subtitle">
-      Connect with our property advisors and discover curated projects tailored to your investment goals.
-    </p>
-    
-    <button class="banner-cta-btn" onclick="openModal()">
-      Get Started
-    </button>
-    
+    <div class="eagle-logo"><img src="assets/images/Eaglehead.png" alt="Eagle Logo" /></div>
+    <h2 class="banner-title">Let's Find You the<br><span class="gold-highlight">Right Nest</span></h2>
+    <p class="banner-subtitle">Connect with our property advisors and discover curated projects tailored to your investment goals.</p>
+    <button class="banner-cta-btn" onclick="openModal()">Get Started</button>
   </div>
 </section>
 
-<!-- ================= SUCCESS MODAL ================= -->
-<div class="feedback-overlay" id="successOverlay" onclick="closeFeedback('success')">
-  <div class="feedback-modal success-modal" onclick="event.stopPropagation()">
-    <button class="feedback-close" onclick="closeFeedback('success')">×</button>
-    <img src="assets/images/Success.png" alt="Success" class="feedback-icon" />
-    <h3 class="feedback-title">Enquiry Sent Successfully!</h3>
-    <p class="feedback-message">
-      Thank you for reaching out. Our team will get back to you within 24 hours.
-    </p>
-    <button class="feedback-btn success-btn" onclick="closeFeedback('success')">
-      Got it
-    </button>
-  </div>
-</div>
-
-<!-- ================= ERROR MODAL ================= -->
-<div class="feedback-overlay" id="errorOverlay" onclick="closeFeedback('error')">
-  <div class="feedback-modal error-modal" onclick="event.stopPropagation()">
-    <button class="feedback-close" onclick="closeFeedback('error')">×</button>
-    <img src="assets/images/Error.png" alt="Error" class="feedback-icon" />
-    <h3 class="feedback-title">Oops! Something Went Wrong</h3>
-    <p class="feedback-message">
-      We couldn't process your request. Please check your connection and try again.
-    </p>
-    <button class="feedback-btn error-btn" onclick="closeFeedback('error')">
-      Try Again
-    </button>
-  </div>
-</div>
-<!-- ================= FOOTER ================= -->
+<!-- FOOTER -->
 <footer class="site-footer">
   <div class="footer-container">
-    
-    <!-- Footer Top -->
     <div class="footer-top">
-      
-      <!-- Left: Logo & Description -->
       <div class="footer-brand">
         <img src="assets/images/Eaglenesthorizontal.png" alt="Eaglenest Realty" class="footer-logo" />
-        <p class="footer-description">
-          Your trusted partner in finding the perfect home. We make property search simple, transparent, and rewarding.
-        </p>
+        <p class="footer-description">Your trusted partner in finding the perfect home. We make property search simple, transparent, and rewarding.</p>
       </div>
       
-      <!-- Middle: Quick Links -->
       <div class="footer-links">
         <h4 class="footer-heading">Quick Links</h4>
         <ul>
@@ -499,78 +354,46 @@
         </ul>
       </div>
       
-      <!-- Right: Contact Info -->
       <div class="footer-contact">
         <h4 class="footer-heading">Get In Touch</h4>
         <ul>
-          <li>
-            <img src="assets/images/location.png" alt="Location" class="footer-icon" />
-            <span>Mumbai & Pune, India</span>
-          </li>
-          <li>
-            <a href="mailto:info@eaglenestrealty.com">info@eaglenestrealty.com</a>
-          </li>
-          <li>
-            <a href="tel:+919876543210">+91 98765 43210</a>
-          </li>
+          <li><img src="assets/images/location.png" alt="Location" class="footer-icon" /><span>Mumbai & Pune, India</span></li>
+          <li><a href="mailto:info@eaglenestrealty.com">info@eaglenestrealty.com</a></li>
+          <li><a href="tel:+919876543210">+91 98765 43210</a></li>
         </ul>
       </div>
-      
     </div>
     
-    <!-- Footer Bottom -->
     <div class="footer-bottom">
-      
-      <!-- Left: Copyright -->
-      <div class="footer-copyright">
-        <p>&copy; 2025 Eaglenest Realty. All rights reserved.</p>
-      </div>
-      
-      <!-- Right: Social Media Icons -->
+      <div class="footer-copyright"><p>&copy; 2025 Eaglenest Realty. All rights reserved.</p></div>
       <div class="footer-social">
-        <a href="#" target="_blank" aria-label="Facebook">
-          <img src="assets/images/facebook.png" alt="Facebook" />
-        </a>
-        <a href="#" target="_blank" aria-label="Instagram">
-          <img src="assets/images/insta.png" alt="Instagram" />
-        </a>
-        <a href="#" target="_blank" aria-label="LinkedIn">
-          <img src="assets/images/linkedin.png" alt="LinkedIn" />
-        </a>
-        <a href="#" target="_blank" aria-label="X (Twitter)">
-          <img src="assets/images/x.png" alt="X" />
-        </a>
+        <a href="#" target="_blank" aria-label="Facebook"><img src="assets/images/facebook.png" alt="Facebook" /></a>
+        <a href="#" target="_blank" aria-label="Instagram"><img src="assets/images/insta.png" alt="Instagram" /></a>
+        <a href="#" target="_blank" aria-label="LinkedIn"><img src="assets/images/linkedin.png" alt="LinkedIn" /></a>
+        <a href="#" target="_blank" aria-label="X"><img src="assets/images/x.png" alt="X" /></a>
       </div>
-      
     </div>
-    
   </div>
 </footer>
 
-<!-- ================= MODAL ================= -->
+<!-- ENQUIRY MODAL -->
 <div class="modal-overlay" id="modalOverlay" onclick="closeOnOutside(event)">
-  <div class="modal">
+  <div class="modal" onclick="event.stopPropagation()">
     <button class="modal-close" onclick="closeModal()">×</button>
-
     <h2>Enquire Now</h2>
-
     <form id="enquiryForm" onsubmit="submitEnquiry(event)">
-
       <div class="form-field">
         <input type="text" id="name" placeholder="Full Name" />
         <span class="error-text">This field is required</span>
       </div>
-
       <div class="form-field">
         <input type="email" id="email" placeholder="Email Address" />
         <span class="error-text">This field is required</span>
       </div>
-
       <div class="form-field">
         <input type="tel" id="phone" placeholder="Phone Number" />
         <span class="error-text">This field is required</span>
       </div>
-
       <div class="form-field">
         <select id="interest">
           <option value="">Select interest</option>
@@ -583,135 +406,81 @@
         </select>
         <span class="error-text">This field is required</span>
       </div>
-
-      <button type="submit" class="submit-btn">
-        Submit Enquiry
-      </button>
-
+      <button type="submit" class="submit-btn">Submit Enquiry</button>
     </form>
   </div>
 </div>
+
+<!-- SUCCESS MODAL -->
+<div class="feedback-overlay" id="successOverlay" onclick="closeFeedback('success')">
+  <div class="feedback-modal" onclick="event.stopPropagation()">
+    <button class="feedback-close" onclick="closeFeedback('success')">×</button>
+    <img src="assets/images/Success.png" alt="Success" class="feedback-icon" />
+    <h3 class="feedback-title">Enquiry Sent Successfully!</h3>
+    <p class="feedback-message">Thank you for reaching out. Our team will get back to you within 24 hours.</p>
+    <button class="feedback-btn success-btn" onclick="closeFeedback('success')">Got it</button>
+  </div>
+</div>
+
+<!-- ERROR MODAL -->
+<div class="feedback-overlay" id="errorOverlay" onclick="closeFeedback('error')">
+  <div class="feedback-modal" onclick="event.stopPropagation()">
+    <button class="feedback-close" onclick="closeFeedback('error')">×</button>
+    <img src="assets/images/Error.png" alt="Error" class="feedback-icon" />
+    <h3 class="feedback-title">Oops! Something Went Wrong</h3>
+    <p class="feedback-message">We couldn't process your request. Please check your connection and try again.</p>
+    <button class="feedback-btn error-btn" onclick="closeFeedback('error')">Try Again</button>
+  </div>
+</div>
+
 <script>
-  console.log("Script loaded successfully");
+function openModal() {
+  document.getElementById("modalOverlay").classList.add("active");
+}
 
-  // ================= MODAL FUNCTIONS =================
-  function openModal() {
-    console.log("openModal called");
-    const modal = document.getElementById("modalOverlay");
-    console.log("Modal element:", modal);
-    if (modal) {
-      modal.classList.add("active");
-      console.log("Active class added");
-    } else {
-      console.error("Modal element not found!");
+function closeModal() {
+  document.getElementById("modalOverlay").classList.remove("active");
+  clearErrors();
+}
+
+function closeOnOutside(e) {
+  if (e.target.id === "modalOverlay") closeModal();
+}
+
+function clearErrors() {
+  document.querySelectorAll(".form-field").forEach(field => field.classList.remove("error"));
+}
+
+function showFeedback(type) {
+  document.getElementById(type === 'success' ? 'successOverlay' : 'errorOverlay').classList.add('active');
+}
+
+function closeFeedback(type) {
+  document.getElementById(type === 'success' ? 'successOverlay' : 'errorOverlay').classList.remove('active');
+}
+
+function submitEnquiry(e) {
+  e.preventDefault();
+  clearErrors();
+  let hasError = false;
+  
+  document.querySelectorAll(".form-field").forEach(field => {
+    const input = field.querySelector("input, select");
+    if (!input.value || input.value === "" || input.value === "Select interest") {
+      hasError = true;
+      field.classList.add("error");
     }
+  });
+  
+  if (hasError) {
+    showFeedback('error');
+    return;
   }
-
-  function closeModal() {
-    console.log("closeModal called");
-    document.getElementById("modalOverlay").classList.remove("active");
-    clearErrors();
-  }
-
-  function closeOnOutside(e) {
-    if (e.target.id === "modalOverlay") {
-      closeModal();
-    }
-  }
-
-  function clearErrors() {
-    document.querySelectorAll(".form-field").forEach(field => {
-      field.classList.remove("error");
-    });
-  }
-
-  // ================= FEEDBACK MODAL FUNCTIONS =================
-  function showFeedback(type) {
-    console.log("showFeedback called with type:", type);
-    if (type === 'success') {
-      const successModal = document.getElementById('successOverlay');
-      console.log("Success modal element:", successModal);
-      if (successModal) {
-        successModal.classList.add('active');
-      }
-    } else if (type === 'error') {
-      const errorModal = document.getElementById('errorOverlay');
-      console.log("Error modal element:", errorModal);
-      if (errorModal) {
-        errorModal.classList.add('active');
-      }
-    }
-  }
-
-  function closeFeedback(type) {
-    console.log("closeFeedback called with type:", type);
-    if (type === 'success') {
-      document.getElementById('successOverlay').classList.remove('active');
-    } else if (type === 'error') {
-      document.getElementById('errorOverlay').classList.remove('active');
-    }
-  }
-
-  // ================= FORM SUBMISSION =================
-  function submitEnquiry(e) {
-    console.log("submitEnquiry called");
-    e.preventDefault();
-    clearErrors();
-
-    let hasError = false;
-
-    document.querySelectorAll(".form-field").forEach(field => {
-      const input = field.querySelector("input, select");
-
-      if (!input.value || input.value === "" || input.value === "Select interest") {
-        hasError = true;
-        field.classList.add("error");
-      }
-    });
-
-    if (hasError) {
-      console.log("Form has errors, showing error modal");
-      showFeedback('error');
-      return;
-    }
-
-    console.log("Form valid, showing success modal");
-    showFeedback('success');
-    document.getElementById("enquiryForm").reset();
-    closeModal();
-  }
-
-  // ================= CONTACT BANNER FUNCTION =================
-  function submitMainContact(e) {
-    e.preventDefault();
-    
-    const name = document.getElementById("mainContactName").value;
-    const phone = document.getElementById("mainContactPhone").value;
-    const email = document.getElementById("mainContactEmail").value;
-    const interest = document.getElementById("mainContactInterest").value;
-    const message = document.getElementById("mainContactMessage").value;
-    
-    if (!name || !phone || !email || !interest || !message) {
-      showFeedback('error');
-      return;
-    }
-    
-    showFeedback('success');
-    document.getElementById("mainContactForm").reset();
-  }
-
-  function openContactBanner() {
-    window.scrollTo({
-      top: document.querySelector('.contact-banner-section').offsetTop,
-      behavior: 'smooth'
-    });
-  }
-
-  // Test on page load
-  console.log("Checking if modal elements exist:");
-  console.log("modalOverlay:", document.getElementById("modalOverlay"));
-  console.log("successOverlay:", document.getElementById("successOverlay"));
-  console.log("errorOverlay:", document.getElementById("errorOverlay"));
+  
+  showFeedback('success');
+  document.getElementById("enquiryForm").reset();
+  closeModal();
+}
 </script>
 </body>
 </html>
