@@ -372,7 +372,7 @@ body {
 .full-width-card-container {
   max-width: 1200px;
   margin: 16px auto 0 auto;
-  padding: 0 24px; /* ADD THIS LINE */
+  /* Remove padding: 0 24px; */
 }
 
 .full-width-card {
