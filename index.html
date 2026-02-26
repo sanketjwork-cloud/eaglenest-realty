@@ -617,6 +617,23 @@
     });
   }
 
+  // ================= FEEDBACK MODAL FUNCTIONS =================
+  function showFeedback(type) {
+    if (type === 'success') {
+      document.getElementById('successOverlay').classList.add('active');
+    } else if (type === 'error') {
+      document.getElementById('errorOverlay').classList.add('active');
+    }
+  }
+
+  function closeFeedback(type) {
+    if (type === 'success') {
+      document.getElementById('successOverlay').classList.remove('active');
+    } else if (type === 'error') {
+      document.getElementById('errorOverlay').classList.remove('active');
+    }
+  }
+
   // ================= MODAL FORM SUBMISSION =================
   function submitEnquiry(e) {
     e.preventDefault();
@@ -633,78 +650,26 @@
       }
     });
 
-    if (!hasError) {
-      const formData = {
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        phone: document.getElementById("phone").value,
-        interest: document.getElementById("interest").value,
-        message: "",
-        source: "Modal Enquiry Form",
-        timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
-      };
-
-      const submitBtn = e.target.querySelector('button[type="submit"]');
-      const originalText = submitBtn.textContent;
-      submitBtn.textContent = "Sending...";
-      submitBtn.disabled = true;
-
-      fetch(ZAPIER_WEBHOOK_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
-      })
-      .then(() => {
-        alert("Enquiry submitted successfully! We'll get back to you soon.");
-        document.getElementById("enquiryForm").reset();
-        closeModal();
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        alert("Enquiry received! We'll contact you shortly.");
-        document.getElementById("enquiryForm").reset();
-        closeModal();
-      })
-      .finally(() => {
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-      });
-    }
-  }
-
-  // ================= MAIN CONTACT FORM SUBMISSION =================
-  function submitMainContact(e) {
-    e.preventDefault();
-    
-    const name = document.getElementById("mainContactName").value;
-    const phone = document.getElementById("mainContactPhone").value;
-    const email = document.getElementById("mainContactEmail").value;
-    const interest = document.getElementById("mainContactInterest").value;
-    const message = document.getElementById("mainContactMessage").value;
-    
-    if (!name || !phone || !email || !interest || !message) {
-      alert("Please fill in all required fields.");
+    if (hasError) {
+      showFeedback('error');
       return;
     }
-    
+
     const formData = {
-      name: name,
-      phone: phone,
-      email: email,
-      interest: interest,
-      message: message,
-      source: "Main Contact Form",
+      name: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      phone: document.getElementById("phone").value,
+      interest: document.getElementById("interest").value,
+      message: "",
+      source: "Modal Enquiry Form",
       timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
     };
-    
+
     const submitBtn = e.target.querySelector('button[type="submit"]');
     const originalText = submitBtn.textContent;
     submitBtn.textContent = "Sending...";
     submitBtn.disabled = true;
-    
+
     fetch(ZAPIER_WEBHOOK_URL, {
       method: 'POST',
       mode: 'no-cors',
@@ -714,19 +679,23 @@
       body: JSON.stringify(formData)
     })
     .then(() => {
-      alert("Thank you! We'll get back to you soon.");
-      document.getElementById("mainContactForm").reset();
+      showFeedback('success');
+      document.getElementById("enquiryForm").reset();
+      closeModal();
     })
     .catch(error => {
       console.error('Error:', error);
-      alert("Message received! We'll contact you shortly.");
-      document.getElementById("mainContactForm").reset();
+      // Even on error, show success because of no-cors mode
+      showFeedback('success');
+      document.getElementById("enquiryForm").reset();
+      closeModal();
     })
     .finally(() => {
       submitBtn.textContent = originalText;
       submitBtn.disabled = false;
     });
   }
-</script>
+
+  // ================= MA
 </body>
 </html>
