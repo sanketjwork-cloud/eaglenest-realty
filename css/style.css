@@ -1438,10 +1438,11 @@ body {
 .contact-banner-section {
   display: flex;
   width: 100%;
-  padding: 100px 120px;
+  padding: 80px 120px;
   justify-content: center;
   align-items: center;
   background: #FFFAEF;
+  min-height: 500px;
 }
 
 .contact-banner-container {
@@ -1498,7 +1499,7 @@ body {
 
 .banner-cta-btn {
   margin-top: 16px;
-  background: linear-gradient(to right, #e1c388, #b38226);
+  background: #000;
   border: none;
   padding: 16px 48px;
   border-radius: 8px;
@@ -1508,12 +1509,13 @@ body {
   font-size: 18px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(179, 130, 38, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .banner-cta-btn:hover {
+  background: #1a1a1a;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(179, 130, 38, 0.4);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }
 
 .banner-cta-btn:active {
@@ -1523,7 +1525,8 @@ body {
 /* ================= RESPONSIVE - TABLET ================= */
 @media (max-width: 1024px) {
   .contact-banner-section {
-    padding: 80px 60px;
+    padding: 70px 60px;
+    min-height: 450px;
   }
   
   .banner-title {
@@ -1543,6 +1546,7 @@ body {
 @media (max-width: 768px) {
   .contact-banner-section {
     padding: 60px 24px;
+    min-height: 400px;
   }
   
   .eagle-logo {
@@ -1571,6 +1575,7 @@ body {
 @media (max-width: 480px) {
   .contact-banner-section {
     padding: 50px 20px;
+    min-height: 380px;
   }
   
   .eagle-logo {
