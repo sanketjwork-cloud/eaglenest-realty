@@ -464,7 +464,7 @@ The layout will now look exactly like your screenshot:
 │   Redevelopment Projects       │
 └────────────────────────────────┘
 
-/* ================= MODAL OVERLAY ================= */
+//* ================= MODAL OVERLAY ================= */
 .modal-overlay {
   position: fixed;
   inset: 0;
