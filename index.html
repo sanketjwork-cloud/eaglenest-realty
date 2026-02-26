@@ -592,12 +592,23 @@
   </div>
 </div>
 <script>
+  console.log("Script loaded successfully");
+
   // ================= MODAL FUNCTIONS =================
   function openModal() {
-    document.getElementById("modalOverlay").classList.add("active");
+    console.log("openModal called");
+    const modal = document.getElementById("modalOverlay");
+    console.log("Modal element:", modal);
+    if (modal) {
+      modal.classList.add("active");
+      console.log("Active class added");
+    } else {
+      console.error("Modal element not found!");
+    }
   }
 
   function closeModal() {
+    console.log("closeModal called");
     document.getElementById("modalOverlay").classList.remove("active");
     clearErrors();
   }
@@ -616,14 +627,24 @@
 
   // ================= FEEDBACK MODAL FUNCTIONS =================
   function showFeedback(type) {
+    console.log("showFeedback called with type:", type);
     if (type === 'success') {
-      document.getElementById('successOverlay').classList.add('active');
+      const successModal = document.getElementById('successOverlay');
+      console.log("Success modal element:", successModal);
+      if (successModal) {
+        successModal.classList.add('active');
+      }
     } else if (type === 'error') {
-      document.getElementById('errorOverlay').classList.add('active');
+      const errorModal = document.getElementById('errorOverlay');
+      console.log("Error modal element:", errorModal);
+      if (errorModal) {
+        errorModal.classList.add('active');
+      }
     }
   }
 
   function closeFeedback(type) {
+    console.log("closeFeedback called with type:", type);
     if (type === 'success') {
       document.getElementById('successOverlay').classList.remove('active');
     } else if (type === 'error') {
@@ -633,6 +654,7 @@
 
   // ================= FORM SUBMISSION =================
   function submitEnquiry(e) {
+    console.log("submitEnquiry called");
     e.preventDefault();
     clearErrors();
 
@@ -648,11 +670,12 @@
     });
 
     if (hasError) {
+      console.log("Form has errors, showing error modal");
       showFeedback('error');
       return;
     }
 
-    // If no errors, show success
+    console.log("Form valid, showing success modal");
     showFeedback('success');
     document.getElementById("enquiryForm").reset();
     closeModal();
@@ -683,6 +706,12 @@
       behavior: 'smooth'
     });
   }
+
+  // Test on page load
+  console.log("Checking if modal elements exist:");
+  console.log("modalOverlay:", document.getElementById("modalOverlay"));
+  console.log("successOverlay:", document.getElementById("successOverlay"));
+  console.log("errorOverlay:", document.getElementById("errorOverlay"));
 </script>
 </body>
 </html>
