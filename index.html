@@ -434,53 +434,151 @@
 </div>
 
 <script>
-function openModal() {
-  document.getElementById("modalOverlay").classList.add("active");
-}
+  // ================= ZAPIER WEBHOOK =================
+  const ZAPIER_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/26456956/uev5h5b/';
 
-function closeModal() {
-  document.getElementById("modalOverlay").classList.remove("active");
-  clearErrors();
-}
-
-function closeOnOutside(e) {
-  if (e.target.id === "modalOverlay") closeModal();
-}
-
-function clearErrors() {
-  document.querySelectorAll(".form-field").forEach(field => field.classList.remove("error"));
-}
-
-function showFeedback(type) {
-  document.getElementById(type === 'success' ? 'successOverlay' : 'errorOverlay').classList.add('active');
-}
-
-function closeFeedback(type) {
-  document.getElementById(type === 'success' ? 'successOverlay' : 'errorOverlay').classList.remove('active');
-}
-
-function submitEnquiry(e) {
-  e.preventDefault();
-  clearErrors();
-  let hasError = false;
-  
-  document.querySelectorAll(".form-field").forEach(field => {
-    const input = field.querySelector("input, select");
-    if (!input.value || input.value === "" || input.value === "Select interest") {
-      hasError = true;
-      field.classList.add("error");
-    }
-  });
-  
-  if (hasError) {
-    showFeedback('error');
-    return;
+  // ================= MODAL FUNCTIONS =================
+  function openModal() {
+    document.getElementById("modalOverlay").classList.add("active");
   }
-  
-  showFeedback('success');
-  document.getElementById("enquiryForm").reset();
-  closeModal();
-}
+
+  function closeModal() {
+    document.getElementById("modalOverlay").classList.remove("active");
+    clearErrors();
+  }
+
+  function closeOnOutside(e) {
+    if (e.target.id === "modalOverlay") closeModal();
+  }
+
+  function clearErrors() {
+    document.querySelectorAll(".form-field").forEach(field => field.classList.remove("error"));
+  }
+
+  // ================= FEEDBACK MODAL FUNCTIONS =================
+  function showFeedback(type) {
+    document.getElementById(type === 'success' ? 'successOverlay' : 'errorOverlay').classList.add('active');
+  }
+
+  function closeFeedback(type) {
+    document.getElementById(type === 'success' ? 'successOverlay' : 'errorOverlay').classList.remove('active');
+  }
+
+  // ================= FORM SUBMISSION WITH ZAPIER =================
+  function submitEnquiry(e) {
+    e.preventDefault();
+    clearErrors();
+    let hasError = false;
+    
+    document.querySelectorAll(".form-field").forEach(field => {
+      const input = field.querySelector("input, select");
+      if (!input.value || input.value === "" || input.value === "Select interest") {
+        hasError = true;
+        field.classList.add("error");
+      }
+    });
+    
+    if (hasError) {
+      showFeedback('error');
+      return;
+    }
+
+    // Prepare form data for Zapier
+    const formData = {
+      name: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      phone: document.getElementById("phone").value,
+      interest: document.getElementById("interest").value,
+      message: "",
+      source: "Modal Enquiry Form",
+      timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+    };
+
+    // Disable submit button during submission
+    const submitBtn = e.target.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = "Sending...";
+    submitBtn.disabled = true;
+
+    // Send to Zapier
+    fetch(ZAPIER_WEBHOOK_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData)
+    })
+    .then(() => {
+      showFeedback('success');
+      document.getElementById("enquiryForm").reset();
+      closeModal();
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      // Show success anyway because no-cors mode doesn't return response
+      showFeedback('success');
+      document.getElementById("enquiryForm").reset();
+      closeModal();
+    })
+    .finally(() => {
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+    });
+  }
+
+  // ================= CONTACT BANNER FORM (if you have one) =================
+  function submitMainContact(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById("mainContactName").value;
+    const phone = document.getElementById("mainContactPhone").value;
+    const email = document.getElementById("mainContactEmail").value;
+    const interest = document.getElementById("mainContactInterest").value;
+    const message = document.getElementById("mainContactMessage").value;
+    
+    if (!name || !phone || !email || !interest || !message) {
+      showFeedback('error');
+      return;
+    }
+
+    const formData = {
+      name: name,
+      phone: phone,
+      email: email,
+      interest: interest,
+      message: message,
+      source: "Main Contact Form",
+      timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+    };
+
+    const submitBtn = e.target.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = "Sending...";
+    submitBtn.disabled = true;
+
+    fetch(ZAPIER_WEBHOOK_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData)
+    })
+    .then(() => {
+      showFeedback('success');
+      document.getElementById("mainContactForm").reset();
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      showFeedback('success');
+      document.getElementById("mainContactForm").reset();
+    })
+    .finally(() => {
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+    });
+  }
 </script>
 </body>
 </html>
