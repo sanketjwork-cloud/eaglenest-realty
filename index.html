@@ -592,10 +592,7 @@
   </div>
 </div>
 <script>
-  // ================= ZAPIER WEBHOOK URL =================
-  const ZAPIER_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/26456956/uev5h5b/';
-
-  // ================= MODAL FUNCTIONS =================
+  // Modal Functions for Header Enquiry Button
   function openModal() {
     document.getElementById("modalOverlay").classList.add("active");
   }
@@ -617,24 +614,6 @@
     });
   }
 
-  // ================= FEEDBACK MODAL FUNCTIONS =================
-  function showFeedback(type) {
-    if (type === 'success') {
-      document.getElementById('successOverlay').classList.add('active');
-    } else if (type === 'error') {
-      document.getElementById('errorOverlay').classList.add('active');
-    }
-  }
-
-  function closeFeedback(type) {
-    if (type === 'success') {
-      document.getElementById('successOverlay').classList.remove('active');
-    } else if (type === 'error') {
-      document.getElementById('errorOverlay').classList.remove('active');
-    }
-  }
-
-  // ================= MODAL FORM SUBMISSION =================
   function submitEnquiry(e) {
     e.preventDefault();
     clearErrors();
@@ -650,52 +629,64 @@
       }
     });
 
-    if (hasError) {
+    if (!hasError) {
+      // Simulate success (you can add actual form submission here)
+      showFeedback('success');
+      document.getElementById("enquiryForm").reset();
+      closeModal();
+    } else {
+      showFeedback('error');
+    }
+  }
+
+  // Main Contact Form Function (Contact Banner Section)
+  function submitMainContact(e) {
+    e.preventDefault();
+    
+    // Get form values
+    const name = document.getElementById("mainContactName").value;
+    const phone = document.getElementById("mainContactPhone").value;
+    const email = document.getElementById("mainContactEmail").value;
+    const interest = document.getElementById("mainContactInterest").value;
+    const message = document.getElementById("mainContactMessage").value;
+    
+    // Simple validation
+    if (!name || !phone || !email || !interest || !message) {
       showFeedback('error');
       return;
     }
-
-    const formData = {
-      name: document.getElementById("name").value,
-      email: document.getElementById("email").value,
-      phone: document.getElementById("phone").value,
-      interest: document.getElementById("interest").value,
-      message: "",
-      source: "Modal Enquiry Form",
-      timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
-    };
-
-    const submitBtn = e.target.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = "Sending...";
-    submitBtn.disabled = true;
-
-    fetch(ZAPIER_WEBHOOK_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData)
-    })
-    .then(() => {
-      showFeedback('success');
-      document.getElementById("enquiryForm").reset();
-      closeModal();
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      // Even on error, show success because of no-cors mode
-      showFeedback('success');
-      document.getElementById("enquiryForm").reset();
-      closeModal();
-    })
-    .finally(() => {
-      submitBtn.textContent = originalText;
-      submitBtn.disabled = false;
-    });
+    
+    // Show success modal
+    showFeedback('success');
+    document.getElementById("mainContactForm").reset();
   }
 
+  // Show feedback modal
+  function showFeedback(type) {
+    if (type === 'success') {
+      document.getElementById('successOverlay').classList.add('active');
+    } else if (type === 'error') {
+      document.getElementById('errorOverlay').classList.add('active');
+    }
+  }
+
+  // Close feedback modal
+  function closeFeedback(type) {
+    if (type === 'success') {
+      document.getElementById('successOverlay').classList.remove('active');
+    } else if (type === 'error') {
+      document.getElementById('errorOverlay').classList.remove('active');
+    }
+  }
+
+  // Open contact banner modal
+  function openContactBanner() {
+    window.scrollTo({
+      top: document.querySelector('.contact-banner-section').offsetTop,
+      behavior: 'smooth'
+    });
+  }
+</script>
   // ================= MA
 </body>
 </html>
