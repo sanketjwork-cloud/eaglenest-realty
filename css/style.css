@@ -464,7 +464,7 @@ The layout will now look exactly like your screenshot:
 │   Redevelopment Projects       │
 └────────────────────────────────┘
 
-/* ================= MODAL ================= */
+/* ================= MODAL OVERLAY ================= */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -472,7 +472,7 @@ The layout will now look exactly like your screenshot:
   display: none;
   align-items: center;
   justify-content: center;
-  z-index: 10000;
+  z-index: 9999;
   backdrop-filter: blur(2px);
 }
 
@@ -480,9 +480,10 @@ The layout will now look exactly like your screenshot:
   display: flex;
 }
 
+/* ================= MODAL BOX ================= */
 .modal {
   background: #ffffff;
-  width: 667px;
+  width: 500px;
   max-width: 90%;
   border-radius: 16px;
   padding: 32px;
@@ -521,6 +522,7 @@ The layout will now look exactly like your screenshot:
   color: #141414;
 }
 
+/* ================= FORM FIELDS ================= */
 .form-field {
   display: flex;
   flex-direction: column;
@@ -549,11 +551,13 @@ The layout will now look exactly like your screenshot:
   cursor: pointer;
 }
 
+/* Error border */
 .form-field.error input,
 .form-field.error select {
   border-color: #E53935;
 }
 
+/* Error text */
 .error-text {
   display: none;
   font-size: 12px;
@@ -566,6 +570,7 @@ The layout will now look exactly like your screenshot:
   display: block;
 }
 
+/* ================= SUBMIT BUTTON ================= */
 .submit-btn {
   width: 100%;
   background: linear-gradient(to right, #e1c388, #b38226);
@@ -582,6 +587,18 @@ The layout will now look exactly like your screenshot:
 
 .submit-btn:hover {
   transform: translateY(-2px);
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .modal {
+    width: 90%;
+    padding: 24px;
+  }
+  
+  .modal h2 {
+    font-size: 24px;
+  }
 }
 
 /* ================= PROJECTS WE WORK WITH ================= */
