@@ -356,9 +356,11 @@
             <span>Mumbai & Pune, India</span>
           </li>
           <li>
-            <a href="mailto:info@eaglenestrealty.in">info@eaglenestrealty.in</a>
+            <img src="assets/images/Mail.png" alt="Email" class="footer-icon" />
+            <a href="mailto:info@eaglenestrealty.com">info@eaglenestrealty.com</a>
           </li>
           <li>
+            <img src="assets/images/Phonecall.png" alt="Phone" class="footer-icon" />
             <a href="tel:+917304646906">+91 73046 46906</a>
           </li>
         </ul>
@@ -369,7 +371,7 @@
     <div class="footer-bottom">
       
       <div class="footer-copyright">
-        <p>&copy; 2026 Eaglenest Realty. All rights reserved.</p>
+        <p>&copy; 2025 Eaglenest Realty. All rights reserved.</p>
       </div>
       
       <div class="footer-social">
@@ -385,41 +387,6 @@
     
   </div>
 </footer>
-
-<!-- ENQUIRY MODAL -->
-<div class="modal-overlay" id="modalOverlay" onclick="closeOnOutside(event)">
-  <div class="modal" onclick="event.stopPropagation()">
-    <button class="modal-close" onclick="closeModal()">×</button>
-    <h2>Enquire Now</h2>
-    <form id="enquiryForm" onsubmit="submitEnquiry(event)">
-      <div class="form-field">
-        <input type="text" id="name" placeholder="Full Name" />
-        <span class="error-text">This field is required</span>
-      </div>
-      <div class="form-field">
-        <input type="email" id="email" placeholder="Email Address" />
-        <span class="error-text">This field is required</span>
-      </div>
-      <div class="form-field">
-        <input type="tel" id="phone" placeholder="Phone Number" />
-        <span class="error-text">This field is required</span>
-      </div>
-      <div class="form-field">
-        <select id="interest">
-          <option value="">Select interest</option>
-          <option>Luxury Residential</option>
-          <option>Affordable Housing</option>
-          <option>Under-Construction Projects</option>
-          <option>Ready-to-Move Homes</option>
-          <option>Retail / Showrooms</option>
-          <option>Other</option>
-        </select>
-        <span class="error-text">This field is required</span>
-      </div>
-      <button type="submit" class="submit-btn">Submit Enquiry</button>
-    </form>
-  </div>
-</div>
 
 <!-- SUCCESS MODAL -->
 <div class="feedback-overlay" id="successOverlay" onclick="closeFeedback('success')">
