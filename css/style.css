@@ -1658,7 +1658,7 @@ body {
 /* Footer Top */
 .footer-top {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr; /* Changed from 2fr 1fr 1fr */
   gap: 64px;
   padding-bottom: 40px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
