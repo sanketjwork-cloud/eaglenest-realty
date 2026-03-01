@@ -462,6 +462,7 @@ body {
   font-size: 14px;
   outline: none;
   transition: border-color 0.2s;
+  background: #fff;
 }
 
 .form-field input:focus,
@@ -470,17 +471,15 @@ body {
 }
 
 .form-field select {
-  background: #fff;
   cursor: pointer;
 }
 
-/* Error border */
+/* Error states */
 .form-field.error input,
 .form-field.error select {
   border-color: #E53935;
 }
 
-/* Error text */
 .error-text {
   display: none;
   font-size: 12px;
@@ -517,7 +516,102 @@ body {
   cursor: not-allowed;
 }
 
-/* ================= MOBILE ================= */
+/* ================= FEEDBACK MODALS ================= */
+.feedback-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  backdrop-filter: blur(2px);
+}
+
+.feedback-overlay.active {
+  display: flex;
+}
+
+.feedback-modal {
+  background: #ffffff;
+  width: 400px;
+  max-width: 90%;
+  border-radius: 16px;
+  padding: 40px;
+  position: relative;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.feedback-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #666;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+.feedback-close:hover {
+  background: #f0f0f0;
+  color: #000;
+}
+
+.feedback-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+}
+
+.feedback-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #141414;
+}
+
+.feedback-message {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.feedback-btn {
+  padding: 12px 32px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.success-btn {
+  background: linear-gradient(to right, #e1c388, #b38226);
+  color: #fff;
+}
+
+.error-btn {
+  background: #E53935;
+  color: #fff;
+}
+
+.feedback-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
 @media (max-width: 768px) {
   .modal {
     width: 90%;
@@ -528,39 +622,16 @@ body {
   .modal h2 {
     font-size: 24px;
   }
-}
-
-/* ================= SUBMIT BUTTON ================= */
-.submit-btn {
-  width: 100%;
-  background: linear-gradient(to right, #e1c388, #b38226);
-  border: none;
-  padding: 14px 24px;
-  border-radius: 8px;
-  color: #fff;
-  font-weight: 600;
-  font-size: 16px;
-  cursor: pointer;
-  transition: transform 0.2s;
-  margin-top: 8px;
-}
-
-.submit-btn:hover {
-  transform: translateY(-2px);
-}
-
-/* ================= MOBILE ================= */
-@media (max-width: 768px) {
-  .modal {
+  
+  .feedback-modal {
     width: 90%;
-    padding: 24px;
+    padding: 32px 24px;
   }
   
-  .modal h2 {
-    font-size: 24px;
+  .feedback-title {
+    font-size: 20px;
   }
 }
-
 /* ================= PROJECTS WE WORK WITH ================= */
 .projects-section {
   display: inline-flex;
