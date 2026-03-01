@@ -471,19 +471,26 @@
     <button class="feedback-btn error-btn" onclick="closeFeedback('error')">Try Again</button>
   </div>
 </div>
-
 <script>
   // ================= ZAPIER WEBHOOK =================
   const ZAPIER_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/26456956/uev5h5b/';
 
   // ================= MODAL FUNCTIONS =================
   function openModal() {
-    document.getElementById("modalOverlay").classList.add("active");
+    const modal = document.getElementById("modalOverlay");
+    if (modal) {
+      modal.classList.add("active");
+    } else {
+      console.error("Modal element not found!");
+    }
   }
 
   function closeModal() {
-    document.getElementById("modalOverlay").classList.remove("active");
-    clearErrors();
+    const modal = document.getElementById("modalOverlay");
+    if (modal) {
+      modal.classList.remove("active");
+      clearErrors();
+    }
   }
 
   function closeOnOutside(e) {
@@ -496,11 +503,17 @@
 
   // ================= FEEDBACK MODAL FUNCTIONS =================
   function showFeedback(type) {
-    document.getElementById(type === 'success' ? 'successOverlay' : 'errorOverlay').classList.add('active');
+    const overlay = document.getElementById(type === 'success' ? 'successOverlay' : 'errorOverlay');
+    if (overlay) {
+      overlay.classList.add('active');
+    }
   }
 
   function closeFeedback(type) {
-    document.getElementById(type === 'success' ? 'successOverlay' : 'errorOverlay').classList.remove('active');
+    const overlay = document.getElementById(type === 'success' ? 'successOverlay' : 'errorOverlay');
+    if (overlay) {
+      overlay.classList.remove('active');
+    }
   }
 
   // ================= FORM SUBMISSION WITH ZAPIER =================
@@ -522,7 +535,6 @@
       return;
     }
 
-    // Prepare form data for Zapier
     const formData = {
       name: document.getElementById("name").value,
       email: document.getElementById("email").value,
@@ -533,64 +545,6 @@
       timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
     };
 
-    // Disable submit button during submission
-    const submitBtn = e.target.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = "Sending...";
-    submitBtn.disabled = true;
-
-    // Send to Zapier
-    fetch(ZAPIER_WEBHOOK_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData)
-    })
-    .then(() => {
-      showFeedback('success');
-      document.getElementById("enquiryForm").reset();
-      closeModal();
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      // Show success anyway because no-cors mode doesn't return response
-      showFeedback('success');
-      document.getElementById("enquiryForm").reset();
-      closeModal();
-    })
-    .finally(() => {
-      submitBtn.textContent = originalText;
-      submitBtn.disabled = false;
-    });
-  }
-
-  // ================= CONTACT BANNER FORM (if you have one) =================
-  function submitMainContact(e) {
-    e.preventDefault();
-    
-    const name = document.getElementById("mainContactName").value;
-    const phone = document.getElementById("mainContactPhone").value;
-    const email = document.getElementById("mainContactEmail").value;
-    const interest = document.getElementById("mainContactInterest").value;
-    const message = document.getElementById("mainContactMessage").value;
-    
-    if (!name || !phone || !email || !interest || !message) {
-      showFeedback('error');
-      return;
-    }
-
-    const formData = {
-      name: name,
-      phone: phone,
-      email: email,
-      interest: interest,
-      message: message,
-      source: "Main Contact Form",
-      timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
-    };
-
     const submitBtn = e.target.querySelector('button[type="submit"]');
     const originalText = submitBtn.textContent;
     submitBtn.textContent = "Sending...";
@@ -606,69 +560,20 @@
     })
     .then(() => {
       showFeedback('success');
-      document.getElementById("mainContactForm").reset();
+      document.getElementById("enquiryForm").reset();
+      closeModal();
     })
     .catch(error => {
       console.error('Error:', error);
       showFeedback('success');
-      document.getElementById("mainContactForm").reset();
+      document.getElementById("enquiryForm").reset();
+      closeModal();
     })
     .finally(() => {
       submitBtn.textContent = originalText;
       submitBtn.disabled = false;
     });
   }
-</script>
-<!-- Schema.org Structured Data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "RealEstateAgent",
-  "name": "Eaglenest Realty",
-  "image": "https://www.eaglenestrealty.in/assets/images/logo1.png",
-  "logo": "https://www.eaglenestrealty.in/assets/images/logo1.png",
-  "url": "https://www.eaglenestrealty.in",
-  "telephone": "+91-98765-43210",
-  "email": "info@eaglenestrealty.com",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Mumbai",
-    "addressRegion": "Maharashtra",
-    "postalCode": "400001",
-    "addressCountry": "IN"
-  },
-  "areaServed": [
-    {
-      "@type": "City",
-      "name": "Mumbai"
-    },
-    {
-      "@type": "City",
-      "name": "Pune"
-    }
-  ],
-  "description": "Eaglenest Realty offers verified residential projects, luxury apartments, rental homes, and investment properties in Mumbai and Pune with expert real estate consulting and end-to-end assistance.",
-  "priceRange": "$$-$$$",
-  "sameAs": [
-    "https://www.linkedin.com/company/eaglenestrealty/",
-    "https://www.instagram.com/eaglenestrealty/"
-  ],
-  "knowsAbout": [
-    "Residential Real Estate",
-    "Luxury Apartments",
-    "Rental Properties",
-    "Property Investment",
-    "Real Estate Consulting",
-    "Redevelopment Projects"
-  ],
-  "serviceType": [
-    "Residential Projects",
-    "Rental Solutions",
-    "End-to-End Assistance",
-    "Redevelopment Projects",
-    "Investment Guidance"
-  ]
-}
 </script>
 </body>
 </html>
