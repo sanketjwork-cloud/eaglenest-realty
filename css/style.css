@@ -1736,6 +1736,7 @@ body {
   width: 16px;
   height: 16px;
   object-fit: contain;
+  flex-shrink: 0;
 }
 
 /* Footer Bottom */
@@ -1754,11 +1755,11 @@ body {
   margin: 0;
 }
 
-/* Social Media Icons */
+/* Social Media Icons - HORIZONTAL */
 .footer-social {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-direction: row;
+  align-items: center;
   gap: 16px;
 }
 
