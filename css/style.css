@@ -1772,7 +1772,6 @@ body {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   transition: all 0.3s ease;
-  border: 2px solid red; /* TEMPORARY - to see if circles exist */
 }
 .footer-social a svg {
   width: 20px;
@@ -1795,7 +1794,6 @@ body {
   height: 20px;
   object-fit: contain;
   filter: brightness(0) invert(1);
-  border: 2px solid yellow; /* TEMPORARY - to see if image exists */
 }
 
 .footer-social a:hover img {
