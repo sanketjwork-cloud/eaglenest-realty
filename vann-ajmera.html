@@ -6,9 +6,10 @@
   <title>Vann by Ajmera – Signature Residences, Versova | Eaglenest Realty</title>
   <meta name="description" content="Vann by Ajmera Realty – 61 exclusive residences at 7 Bungalows, Versova. 3 & 4 BHK luxury homes with mangrove views. Starting ₹6.35 Cr. Enquire via Eaglenest Realty." />
   <link rel="icon" type="image/png" href="assets/images/Eaglenestlogovertical.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" /></noscript>
   <style>
     /* ===== VARIABLES ===== */
     :root {
@@ -674,8 +675,7 @@
 </div>
 
 <script>
-  // ── Same Zapier webhook as main site ──
-  const ZAPIER_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/26456956/uev5h5b/';
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxgO5sxxnbxyEq8aDOsxeZNrTUzHXbUjF0kwjKmWzCFbOCE-7HLqqEslc2xtaFQmK3U/exec';
 
   function openModal() {
     document.getElementById('modalOverlay').classList.add('active');
@@ -737,10 +737,10 @@
     btn.textContent = 'Sending...';
     btn.disabled = true;
 
-    fetch(ZAPIER_WEBHOOK_URL, {
+    fetch(APPS_SCRIPT_URL, {
       method: 'POST',
       mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'text/plain' },
       body: JSON.stringify(formData)
     })
     .then(() => {
