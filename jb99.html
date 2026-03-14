@@ -35,7 +35,7 @@
     /* ===== HEADER ===== */
     .site-header {
       position: sticky; top: 0; z-index: 1000;
-      height: 72px;
+      height: 80px;
       background: linear-gradient(180deg, #000e26, #000814);
       border-bottom: 1px solid #c99f54;
     }
@@ -44,16 +44,8 @@
       padding: 0 24px; display: flex; align-items: center; justify-content: space-between;
     }
     .brand { display: flex; align-items: center; text-decoration: none; }
-    .brand img { height: 56px; }
+    .brand img { height: 56px; width: auto; }
     .nav-right { display: flex; align-items: center; gap: 20px; }
-    .nav-back-link {
-      display: flex; align-items: center; gap: 7px;
-      color: rgba(255,255,255,0.7); text-decoration: none;
-      font-size: 0.8rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
-      transition: color 0.2s;
-    }
-    .nav-back-link:hover { color: var(--gold-light); }
-    .nav-back-link svg { width: 14px; height: 14px; }
     .header-cta {
       background: linear-gradient(to right, #e1c388, #b38226);
       border: none; padding: 10px 20px; border-radius: 999px;
@@ -440,7 +432,7 @@
 <header class="site-header">
   <div class="header-content">
     <a href="index.html" class="brand">
-      <img src="assets/images/Eaglenesthorizontal.png" alt="Eaglenest Realty" />
+      <img src="assets/images/Eaglenestlogovertical.png" alt="Eaglenest Realty" />
     </a>
     <div class="nav-right">
       <button class="header-cta" onclick="openModal()">Enquire Now</button>
